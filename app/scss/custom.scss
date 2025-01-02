@@ -1,0 +1,24 @@
+// Include functions, mixins, and variables here
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+// Custom variables
+$enable-gradients: true;
+$enable-shadows: true;
+//$form-label-font-size: 1.1rem;
+//$form-label-color: var(--bs-gradiente);
+
+// Create your own map of colors
+
+// Merge the maps
+
+// Include the Bootstrap source files
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Custom fonts
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --bs-body-font-family: "Montserrat", sans-serif;
+}
