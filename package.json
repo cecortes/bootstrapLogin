@@ -1,0 +1,22 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "A bootstrap template for login page, with MySQL as database.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Bootstrap",
+    "JS",
+    "jQuery",
+    "MySQL"
+  ],
+  "author": "César López",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "jquery": "^3.7.1",
+    "mysql": "^2.18.1"
+  }
+}
