@@ -14,3 +14,12 @@
 - [x] Move node dependencies to inside the project folder.
 
 ---
+
+## 01/02/2025 - 20:47pm / - 21:52pm - 1h 5min
+
+- [x] Enable dark mode.
+- [x] Put a background image.
+- [x] Create a login form.
+- [x] Convert into glassmorphism.
+
+---
