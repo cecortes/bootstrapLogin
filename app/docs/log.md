@@ -23,3 +23,9 @@
 - [x] Convert into glassmorphism.
 
 ---
+
+## 01/03/2025 - 21:24pm / - 21:30pm - 6min
+
+- [x] Id's on html elements.
+
+---
