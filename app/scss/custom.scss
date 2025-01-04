@@ -10,8 +10,13 @@ $enable-shadows: true;
 //$form-label-color: var(--bs-gradiente);
 
 // Create your own map of colors
+$custom-colors: (
+  "primario": #146c43,
+  "texto": #4dd4ac,
+);
 
 // Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
 
 // Include the Bootstrap source files
 @import "../../node_modules/bootstrap/scss/bootstrap";
@@ -56,9 +61,7 @@ $enable-shadows: true;
 
 .heading {
   text-align: center;
-  font-weight: 900;
-  font-size: 30px;
-  color: rgb(16, 137, 211);
+  font-weight: 500;
 }
 
 .form {
@@ -86,19 +89,24 @@ $enable-shadows: true;
 
 .form .input:focus {
   outline: none;
-  border-inline: 2px solid #12b1d1;
+  border-inline: 2px solid map-get($theme-colors, "texto");
 }
 
 .form .forgot-password {
   display: block;
-  margin-top: 10px;
+  //margin-top: 10px;
   margin-left: 10px;
 }
 
 .form .forgot-password a {
-  font-size: 11px;
-  color: #0099ff;
+  color: map-get($custom-colors, "primario");
   text-decoration: none;
+  transition: color 0.5s ease;
+}
+
+.form .forgot-password a:hover {
+  text-decoration: underline;
+  color: map-get($custom-colors, "texto");
 }
 
 .form .login-button {

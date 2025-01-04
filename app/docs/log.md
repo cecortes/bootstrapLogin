@@ -29,3 +29,10 @@
 - [x] Id's on html elements.
 
 ---
+
+## 01/04/2025 - 09:10am / - 09:50am - 40min
+
+- [x] Fix login styles.
+- [ ] Fix button and background color.
+
+---
