@@ -33,6 +33,12 @@
 ## 01/04/2025 - 09:10am / - 09:50am - 40min
 
 - [x] Fix login styles.
-- [ ] Fix button and background color.
+
+---
+
+## 01/05/2025 - 09:07am / - 09:37am - 30min
+
+- [x] Fix button and background color.
+- [x] Finish login form styles.
 
 ---
