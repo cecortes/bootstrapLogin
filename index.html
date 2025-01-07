@@ -6,6 +6,10 @@
   <title>Bootstrap Login Template</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="./app/css/mainStyles.css">
+  <!-- jQuery -->
+  <script src="./app/js/jquery.min.js"></script>
+  <!-- JS -->
+  <script src="./app/js/index.js" defer></script>
 </head>
 <body data-bs-theme="dark" class="fondo">
 
@@ -19,11 +23,11 @@
 
           <div class="heading fs-1 text-primario">Bienvenido</div>
 
-          <form action="" class="form">
+          <form action="#" class="form" id="login_form">
 
-            <input required="" class="input" type="email" name="email" id="mail" placeholder="Correo Electrónico">
+            <input class="input" type="email" name="email" id="mail" placeholder="Correo Electrónico">
 
-            <input required="" class="input" type="password" name="password" id="pass" placeholder="Contraseña">
+            <input class="input" type="password" name="password" id="pass" placeholder="Contraseña">
 
             <span class="forgot-password fs-6 mt-4"><a href="#" id="forgot_pass">Olvidé mi contraseña ?</a></span>
             
