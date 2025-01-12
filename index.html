@@ -11,7 +11,7 @@
   <!-- JS -->
   <script src="./app/js/index.js" defer></script>
 </head>
-<body data-bs-theme="dark" class="fondo">
+<body data-bs-theme="dark">
 
   <div class="container-sm text-center">
 
@@ -23,9 +23,9 @@
 
           <div class="heading fs-1 text-primario">Bienvenido</div>
 
-          <form action="#" class="form" id="login_form">
+          <form action="#" class="form needs-validation" id="login_form" novalidate>
 
-            <input class="input" type="email" name="email" id="mail" placeholder="Correo Electrónico">
+            <input class="input form-control-lg" type="email" name="email" id="mail" placeholder="Correo Electrónico" required>
 
             <input class="input" type="password" name="password" id="pass" placeholder="Contraseña">
 

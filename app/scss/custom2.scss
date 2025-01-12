@@ -11,6 +11,9 @@ $enable-shadows: true;
 $custom-colors: (
   "primario": #146c43,
   "texto": #4dd4ac,
+  "sugerencia": #5e7a70,
+  "text-pri": #0c3f26,
+  "text-alert": #ec515b,
 );
 
 // Merge the maps
@@ -33,37 +36,30 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
   --bs-gradiente-hover: rgba(133, 215, 141, 0.878) 0px 23px 10px -20px;
   --bs-input-shadow: #b9f3b5 0px 10px 10px -5px;
   --bs-social-shadow: rgba(133, 215, 148, 0.878) 0px 12px 10px -8px;
+  --bs-input-alert: #f0727a 0px 10px 10px -5px;
 }
 
 // Custom styles
 .fondo {
-  background-image: url("../assets/background3.jpg");
+  background-image: url("../assets/background4.jpg");
   //background-position: center;
   background-size: cover;
-  //background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  height: 100vh;
+  min-height: 500px;
 }
 
-.contenedor {
-  max-width: 600px;
-  //background: #f8f9fd;
-  background: linear-gradient(
-    0deg,
-    rgb(255, 255, 255) 0%,
-    rgb(244, 247, 251) 100%
-  );
+.glass {
+  width: 85%;
+  max-width: 700px;
   border-radius: 40px;
-  padding: 25px 35px;
-  //border: 5px solid rgb(255, 255, 255);
-  //box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
-  margin: 20px;
-  height: 80vh;
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.2);
   //border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.152);
 }
 
 .heading {
@@ -71,59 +67,62 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
   font-weight: 500;
 }
 
-.form {
-  margin-top: 20px;
-}
-
 .form .input {
-  width: 100%;
-  background: white;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.793);
   border: none;
-  padding: 15px 20px;
+  //padding: 15px 20px;
   border-radius: 20px;
-  margin-top: 15px;
   box-shadow: var(--bs-input-shadow);
   border-inline: 2px solid transparent;
+  color: map-get($map: $custom-colors, $key: "text-pri");
 }
 
 .form .input::-moz-placeholder {
-  color: rgb(170, 170, 170);
+  color: map-get($map: $custom-colors, $key: "sugerencia");
 }
 
 .form .input::placeholder {
-  color: rgb(170, 170, 170);
+  color: map-get($map: $custom-colors, $key: "sugerencia");
 }
 
 .form .input:focus {
   outline: none;
   border-inline: 2px solid map-get($theme-colors, "texto");
+  color: map-get($map: $custom-colors, $key: "text-pri");
+}
+
+.input-alert {
+  box-shadow: var(--bs-input-alert) !important;
+  color: map-get($map: $custom-colors, $key: "text-alert") !important;
+  font-weight: 400;
 }
 
 .form .forgot-password {
   display: block;
   //margin-top: 10px;
-  margin-left: 10px;
+  //margin-left: 10px;
 }
 
 .form .forgot-password a {
-  color: map-get($custom-colors, "primario");
+  color: map-get($custom-colors, "text-pri");
   text-decoration: none;
   transition: color 0.5s ease;
 }
 
 .form .forgot-password a:hover {
   text-decoration: underline;
-  color: map-get($custom-colors, "texto");
+  color: map-get($custom-colors, "text-alert");
 }
 
 .form .login-button {
   display: block;
-  width: 100%;
-  font-weight: bold;
+  font-size: 1.3rem;
+  max-width: 300px;
   background: var(--bs-gradiente);
   color: white;
-  padding-block: 15px;
-  margin: 20px auto;
+  padding-block: 5px;
+  margin: 0px auto;
   border-radius: 20px;
   box-shadow: var(--bs-gradiente-shadow);
   border: none;
@@ -140,16 +139,11 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
   box-shadow: var(--bs-gradiente-hover);
 }
 
-.social-account-container {
-  margin-top: 10px;
-}
-
-.social-account-container .title {
+.title {
   display: block;
-  text-align: center;
 }
 
-.social-account-container .social-accounts {
+.social-accounts {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -157,9 +151,9 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
   margin-top: 10px;
 }
 
-.social-account-container .social-accounts .social-button {
+.social-accounts .social-button {
   background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(74, 242, 2) 100%);
-  border: 5px solid white;
+  border: 2px solid white;
   padding: 5px;
   border-radius: 50%;
   width: 40px;
@@ -170,16 +164,16 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
   transition: all 0.3s ease-in-out;
 }
 
-.social-account-container .social-accounts .social-button .svg {
+.social-accounts .social-button .svg {
   fill: white;
   margin: auto;
 }
 
-.social-account-container .social-accounts .social-button:hover {
+.social-accounts .social-button:hover {
   transform: scale(1.2);
 }
 
-.social-account-container .social-accounts .social-button:active {
+.social-accounts .social-button:active {
   transform: scale(0.9);
 }
 

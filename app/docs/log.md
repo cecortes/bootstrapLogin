@@ -42,3 +42,11 @@
 - [x] Finish login form styles.
 
 ---
+
+## 11/05/2025 - 13:06pm / - 18:58pm - 5h 52min
+
+- [x] Due to errors in the login form, I will have to redo it.
+- [x] Starting from scratch with the login form and mobile first.
+- [x] Login form finished with mobile first.
+
+---
