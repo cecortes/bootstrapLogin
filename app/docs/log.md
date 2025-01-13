@@ -51,7 +51,7 @@
 
 ---
 
-## 12/05/2025 - 09:39am / -
+## 12/05/2025 - 09:39am / - 2hr 20min
 
 - [x] Create the database in the server.
 - [x] Create the user table.
