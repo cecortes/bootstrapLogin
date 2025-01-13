@@ -28,20 +28,19 @@ $(function () {
   $btnLogin.click(function (e) {
     e.preventDefault();
     // Create user
-    //const user = new Jarvis.User.init($textMail.val(), $textPassword.val());
     const user = new Jarvis.User($textMail.val(), $textPassword.val());
     const usuario = Jarvis.Usuario.init($textMail.val(), $textPassword.val());
     //Validate user
     user.Validate();
-    //usuario.Validar();
+    //usuario.Validar(); // Another object into Logic Layer
     //Login user
     if (user.validation) {
-      console.log("Login");
-      console.log(user.validation);
+      user.Connect(user);
     }
     if (usuario.validation) {
       console.log("Login");
       console.log(usuario.validation);
+      console.log("Estado");
     }
   });
 

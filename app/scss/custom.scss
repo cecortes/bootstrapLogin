@@ -14,6 +14,11 @@ $custom-colors: (
   "sugerencia": #5e7a70,
   "text-pri": #0c3f26,
   "text-alert": #ec515b,
+  "gradiente": #f3d5d5,
+  "negro": #232323,
+  "fondo": #e0e0e0,
+  "terciario-transparente": rgba(#a03a0b, 0.1),
+  "terciario": #fa5754,
 );
 
 // Merge the maps
@@ -37,6 +42,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
   --bs-input-shadow: #b9f3b5 0px 10px 10px -5px;
   --bs-social-shadow: rgba(133, 215, 148, 0.878) 0px 12px 10px -8px;
   --bs-input-alert: #f0727a 0px 10px 10px -5px;
+  --bs-modal-bg: rgba(244, 61, 29, 0.4);
 }
 
 // Custom styles
@@ -187,4 +193,67 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
   text-decoration: none;
   font-size: 13px;
   color: black;
+}
+
+.glassmorph {
+  /* From https://css.glass */
+  background: rgba(244, 61, 29, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(253, 2, 2, 0.1);
+  backdrop-filter: blur(7.6px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.btn-close {
+  cursor: pointer;
+}
+
+.redGradient {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 0 10px 0 10px;
+  padding: 0 10px;
+  background: var(--bs-negro);
+  border: none;
+  color: var(--bs-fondo);
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 10px;
+  height: 42px;
+  width: 10rem;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.redGradient:after {
+  content: " ";
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(149, 253, 100, 0.529),
+    var(--bs-terciario-transparente)
+  );
+  position: absolute;
+  transition: all 0.4s ease-in-out;
+  right: 0;
+  color: var(--bs-negro);
+}
+
+.redGradient:hover::after {
+  right: auto;
+  left: 0;
+  width: 100%;
+  color: var(--bs-negro);
+}
+
+.redGradient:hover {
+  color: #11171c;
+  animation: scaleUp 0.6s ease-in-out;
+  background: var(--bs-terciario);
 }

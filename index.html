@@ -10,6 +10,8 @@
   <script src="./app/js/jquery.min.js"></script>
   <!-- JS -->
   <script type="module" src="./app/js/index.js"></script>
+  <!-- Back4App -->
+  <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
 </head>
 <body data-bs-theme="dark">
   
@@ -151,6 +153,40 @@
       </div>
 
     </div>
+
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalError" tabindex="-1" role="dialog" aria-labelledby="modalError" aria-hidden="true">
+
+      <!-- Modal size & type -->
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+
+        <!-- Modal Content -->
+        <div class="modal-content glassmorph" id="modal-style">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h5 id="modal-title" style="letter-spacing: 2px;"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            </button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="modal-body">
+            <div class="py-3 text-center text-white">
+              <p class="text-gradiente mt-2" id="modal-text" style="letter-spacing: 2px; font-size: 1.1rem;"></p>
+            </div>          
+          </div>
+
+          <!-- Modal Footer -->
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn redGradient" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+
+        </div>
+
+      </div>
 
   </div>
 

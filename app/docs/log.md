@@ -50,3 +50,11 @@
 - [x] Login form finished with mobile first.
 
 ---
+
+## 12/05/2025 - 09:39am / -
+
+- [x] Create the database in the server.
+- [x] Create the user table.
+- [x] Create the db layer.
+- [x] Research how to connect the database with the form.
+- [ ] Install mysql package.

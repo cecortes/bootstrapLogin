@@ -1,5 +1,7 @@
 "use strict";
 
+import * as Db from "./jarvisDb.js";
+
 /*
  * Global Variables
  *
@@ -8,7 +10,7 @@
  * @param {String} password
  * @param {Boolean} validation
  * @method Validate
- * @return {Boolean
+ * @return {Boolean}
  *
  * Object Usuario
  * @param {String} mail
@@ -67,6 +69,11 @@ export class User {
       // Add error message
       $("#mail").val("Por favor, ingrese un mail válido");
     }
+  }
+
+  // Connect to database
+  Connect(user) {
+    Db.Login(user);
   }
 }
 
