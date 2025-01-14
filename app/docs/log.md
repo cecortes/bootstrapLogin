@@ -57,4 +57,19 @@
 - [x] Create the user table.
 - [x] Create the db layer.
 - [x] Research how to connect the database with the form.
-- [ ] Install mysql package.
+- [x] Install mysql package.
+- [x] Package mysql does not work, I will have to use another one.
+- [x] I moved to the back4app package.
+- [x] I managed to connect the database with the form.
+- [x] Re write the login form with the new database connection.
+
+---
+
+## 13/05/2025 - 07:34pm / - 1hr
+
+- [x] Fix the login form.
+- [x] Optimize the dbLogin.js
+- [x] Optimize Logic Layer.
+- [x] Optimize Presentation Layer.
+
+---

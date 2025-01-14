@@ -10,6 +10,9 @@ $(function () {
   const $textMail = $("#mail"); // Input mail
   const $textPassword = $("#pass"); // Input password
   const $btnLogin = $("#login_button"); // Button login
+  const $modalId = $("#modalError"); // Modal error
+  const $modalTitle = $("#modal-title"); // Modal title
+  const $modalText = $("#modal-text"); // Modal text
   /*
    ******************************************************
    */
@@ -22,25 +25,60 @@ $(function () {
    */
 
   /*
+   * Functions
+   */
+
+  /* --> ShowModal <-- */
+  /* @param {String} title - Modal title
+   * @param {String} error - Modal text
+   */
+  function ShowModal(title, error) {
+    $modalTitle.text(title);
+    $modalText.text(error);
+    $modalId.modal("show");
+  }
+
+  /* --> ClearFields <-- */
+  /* @param none
+   *  @actions: Clear text inputs
+   *  @return none
+   */
+  function ClearFields() {
+    $textMail.val("");
+    $textPassword.val("");
+  }
+
+  /*
+   ******************************************************
+   */
+
+  /*
    * Event Listeners
    */
   // Submit form
-  $btnLogin.click(function (e) {
+  $btnLogin.click(async function (e) {
     e.preventDefault();
     // Create user
     const user = new Jarvis.User($textMail.val(), $textPassword.val());
-    const usuario = Jarvis.Usuario.init($textMail.val(), $textPassword.val());
     //Validate user
     user.Validate();
-    //usuario.Validar(); // Another object into Logic Layer
     //Login user
     if (user.validation) {
-      user.Connect(user);
-    }
-    if (usuario.validation) {
-      console.log("Login");
-      console.log(usuario.validation);
-      console.log("Estado");
+      // Connect to database
+      const session = await user.Connect(user);
+
+      // Check if user is logged
+      if (session.logged) {
+        // Redirect to home
+        //window.location.href = "home.html";
+        console.log("Login: " + session.token);
+        ClearFields();
+      } else {
+        // Show error
+        ShowModal("Login Error", session.msg);
+        // Clear inputs
+        ClearFields();
+      }
     }
   });
 
