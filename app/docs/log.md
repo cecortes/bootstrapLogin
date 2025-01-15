@@ -73,3 +73,12 @@
 - [x] Optimize Presentation Layer.
 
 ---
+
+## 14/05/2025 - 06:28pm / - 32min
+
+- [x] Create a mockup for the dashboard page, Starting with the sidebar.
+- [x] Define the main actions that the user can perform.
+
+![Dashboard sidebar](./Sidebar.png)
+
+---
