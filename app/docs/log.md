@@ -82,3 +82,13 @@
 ![Dashboard sidebar](./Sidebar.png)
 
 ---
+
+## 15/05/2025 - 08:54pm / - 2hrs
+
+- [x] Create the dashboard page.
+- [x] Create all necessary files and folders.
+- [x] Start the dashboard page with the sidebar.
+
+**\* Note:** Accordion menu with icons needs to be created.
+
+---

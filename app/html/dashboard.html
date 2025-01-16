@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap Dashboard</title>
+  <!-- LineIcons -->
+  <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" /> 
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../css/mainStyles.css">
+  <!-- jQuery -->
+  <script src="../js/jquery.min.js"></script>
+  <!-- JS -->
+  <script type="module" src="../js/dashboard.js"></script>
+  <!-- Back4App -->
+  <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+</head>
+<body data-bs-theme="dark">
+
+  <!-- SideBar Wrapper -->
+  <div class="wrapper">
+
+    <!-- SideBar -->
+    <aside id="sidebar">
+
+      <div class="d-flex">
+
+        <!-- Toggle Hide/Show button -->
+        <button id="toggle-btn" type="button">
+          <!-- Grid Icon -->
+          <i class="lni lni-dashboard-square-1"></i>
+        </button>
+
+        <!-- Logo -->
+        <div class="sidebar-logo">
+          <!-- Logo Icon -->
+          <i class="lni lni-dashboard"></i>
+          <!-- Logo Text -->
+          <span>Dashboard</span>
+        </div>
+
+        <!-- Menu List -->
+        <ul class="sidebar-nav">
+          <!-- Menu Item -->
+          <li class="sidebar-item">
+            <!-- Link -->
+            <a href="#" class="sidebar-link">
+              <!-- User -->
+              <i class="lni lni-user-4"></i>
+              <!-- Text -->
+              <span>Usuarios</span>
+            </a>
+          </li>
+
+          <!-- Menu Item -->
+          <li class="sidebar-item">
+            <!-- Link -->
+            <a href="#" class="sidebar-link">
+              <!-- Agenda -->
+              <i class="lni lni-agenda"></i>
+              <!-- Text -->
+              <span>Task</span>
+            </a>
+          </li>
+
+          <!-- Menu Item Collapsible -->
+          
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+  </div>
+  
+  <!-- Bootstrap JS -->
+  <script src="./app/js/bootstrap.bundle.js"></script>
+</body>
+</html>
