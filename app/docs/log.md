@@ -91,4 +91,6 @@
 
 **\* Note:** Accordion menu with icons needs to be created.
 
+- [ ] Take testAccordion as a reference, the error was in the path of the bootstrap bundle.
+
 ---
