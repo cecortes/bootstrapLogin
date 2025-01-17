@@ -94,3 +94,10 @@
 - [ ] Take testAccordion as a reference, the error was in the path of the bootstrap bundle.
 
 ---
+
+## 16/05/2025 - 07:08pm / - 3hrs
+
+- [x] Try again to create the accordion menu with icons.
+- [x] Starting from scratch with the accordion menu.
+
+---

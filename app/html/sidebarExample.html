@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap Dashboard</title>
+  <!-- LineIcons -->
+  <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" /> 
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../css/mainStyles.css">
+  <!-- jQuery -->
+  <script src="../js/jquery.min.js"></script>
+  <!-- JS -->
+  <script type="module" src="../js/dashboard.js"></script>
+  <script src="../js/sidebarExample.js"></script>
+  <!-- Back4App -->
+  <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+</head>
+<body data-bs-theme="dark">
+
+  <!-- SideBar Wrapper -->
+  <div class="wrapper">
+
+    <!-- SideBar -->
+    <aside id="sidebar">
+
+      <div class="d-flex">
+
+        <!-- Toggle Hide/Show button -->
+        <button id="toggle-btn" type="button">
+          <!-- Grid Icon -->
+          <i class="lni lni-dashboard-square-1"></i>
+        </button>
+
+        <!-- Logo -->
+        <div class="sidebar-logo">
+          <!-- Logo Text -->
+          <a href="#">Dashboard</a>
+        </div>
+
+      </div>
+      
+      <!-- Menu List -->
+      <ul class="sidebar-nav">
+        <!-- Menu Item -->
+        <li class="sidebar-item">
+          <!-- Link -->
+          <a href="#" class="sidebar-link">
+            <!-- User -->
+            <i class="lni lni-user-4"></i>
+            <!-- Text -->
+            <span>Usuarios</span>
+          </a>
+        </li>
+
+        <!-- Menu Item -->
+        <li class="sidebar-item">
+          <!-- Link -->
+          <a href="#" class="sidebar-link">
+            <!-- Agenda -->
+            <i class="lni lni-agenda"></i>
+            <!-- Text -->
+            <span>Task</span>
+          </a>
+        </li>
+
+        <!-- Menu Item Collapsible -->
+        <li class="sidebar-item">
+          <!-- Link -->
+          <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+            <!-- Settings -->
+            <i class="lni lni-dashboard-square-1"></i>
+            <!-- Text -->
+            <span>Auth</span>
+          </a>
+
+          <!-- SubMenu -->
+          <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+
+            <!-- Login -->
+            <li class="sidebar-item">
+
+              <a href="#" class="sidebar-link">Login</a>
+
+            </li>
+
+            <!-- Register -->
+            <li class="sidebar-item">
+
+              <a href="#" class="sidebar-link">Register</a>
+
+            </li>
+
+          </ul> 
+
+        </li>
+
+        <!-- Menu Item Collapsible -->
+        <li class="sidebar-item">
+          <!-- Link -->
+          <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+            <!-- Icon -->
+            <i class="lni lni-dashboard-square-1"></i>
+            <!-- Text -->
+            <span>Multi Level</span>
+          </a>
+
+          <!-- SubMenu -->
+          <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+
+            <li class="sidebar-item">
+              
+              <!-- Link 1-->
+              <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
+                Two Links
+              </a>
+
+              <!-- SubMenu 2 -->
+              <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+                
+                <li class="sidebar-item">
+                  <a href="#" class="sidebar-link">Link 1</a>
+                </li>
+
+                <li class="sidebar-item">
+                  <a href="#" class="sidebar-link">Link 2</a>
+                </li>
+
+              </ul>
+
+            </li>
+
+          </ul> 
+
+        </li>
+
+        <!-- Menu Item -->
+        <li class="sidebar-item">
+          <!-- Link -->
+          <a href="#" class="sidebar-link">
+            <!-- Notification -->
+            <i class="lni lni-bell-1"></i>
+            <!-- Text -->
+            <span>Notification</span>
+          </a>
+        </li>
+
+        <!-- Menu Item -->
+        <li class="sidebar-item">
+          <!-- Link -->
+          <a href="#" class="sidebar-link">
+            <!-- Setup -->
+            <i class="lni lni-gear-1"></i>
+            <!-- Text -->
+            <span>Settings</span>
+          </a>
+        </li>
+
+      </ul>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+
+        <!-- Logout -->
+        <a href="#" class="sidebar-link">
+          <!-- Logout Icon -->
+          <i class="lni lni-exit"></i>
+
+          <!-- Logout Text -->
+          <span>Logout</span>
+        </a>
+
+      </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main p-3">
+
+      <div class="text-center">
+
+        <h1>Sidebar Bootstrap</h1>
+
+      </div>
+
+    </div>
+
+  </div>
+  
+  <!-- Bootstrap JS -->
+  <script src="../js/bootstrap.bundle.js"></script>
+</body>
+</html>

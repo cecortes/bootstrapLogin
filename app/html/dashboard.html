@@ -17,15 +17,16 @@
 </head>
 <body data-bs-theme="dark">
 
-  <!-- SideBar Wrapper -->
-  <div class="wrapper">
+  <!-- Main Content -->
+  <main class="wrapper">
 
     <!-- SideBar -->
     <aside id="sidebar">
 
+      <!-- Hamburger Button Container -->
       <div class="d-flex">
-
-        <!-- Toggle Hide/Show button -->
+        
+        <!-- Hamburger Button -->
         <button id="toggle-btn" type="button">
           <!-- Grid Icon -->
           <i class="lni lni-dashboard-square-1"></i>
@@ -33,46 +34,69 @@
 
         <!-- Logo -->
         <div class="sidebar-logo">
-          <!-- Logo Icon -->
-          <i class="lni lni-dashboard"></i>
           <!-- Logo Text -->
-          <span>Dashboard</span>
+          <a href="#">Almazen</a>
         </div>
-
-        <!-- Menu List -->
-        <ul class="sidebar-nav">
-          <!-- Menu Item -->
-          <li class="sidebar-item">
-            <!-- Link -->
-            <a href="#" class="sidebar-link">
-              <!-- User -->
-              <i class="lni lni-user-4"></i>
-              <!-- Text -->
-              <span>Usuarios</span>
-            </a>
-          </li>
-
-          <!-- Menu Item -->
-          <li class="sidebar-item">
-            <!-- Link -->
-            <a href="#" class="sidebar-link">
-              <!-- Agenda -->
-              <i class="lni lni-agenda"></i>
-              <!-- Text -->
-              <span>Task</span>
-            </a>
-          </li>
-
-          <!-- Menu Item Collapsible -->
-          
-
-        </ul>
 
       </div>
 
+      <!-- Menu List -->
+      <ul class="sidebar-nav">
+
+        <!-- Menu Item Collapsible -->
+        <li class="sidebar-item">
+          <!-- Link -->
+          <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#setup" aria-expanded="false" aria-controls="setup">
+            <!-- Setup -->
+            <i class="lni lni-gear-1"></i>
+            <!-- Text -->
+            <span>Configuración</span>
+          </a>
+
+          <!-- SubMenu -->
+          <ul id="setup" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+
+            <!-- Empresa -->
+            <li class="sidebar-item">
+
+              <a href="#" class="sidebar-link">Empresa</a>
+
+            </li>
+
+            <!-- Usuarios -->
+            <li class="sidebar-item">
+
+              <a href="#" class="sidebar-link">Usuarios</a>
+
+            </li>
+
+            <!-- Almacén -->
+            <li class="sidebar-item">
+
+              <a href="#" class="sidebar-link">Almacén</a>
+
+            </li>
+
+          </ul>
+
+        </li>
+
+      </ul>
+
     </aside>
 
-  </div>
+    <!-- Main Content -->
+    <div class="main p-3">
+
+      <div class="text-center">
+
+        <h1>Dashboard Content</h1>
+
+      </div>
+
+    </div>
+
+  </main>
   
   <!-- Bootstrap JS -->
   <script src="../js/bootstrap.bundle.js"></script>
