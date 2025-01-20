@@ -14379,20 +14379,20 @@ a {
 
 a.sidebar-link {
   padding: 0.625rem 1.625rem;
-  color: #146c43;
+  color: #4dd4ac;
   display: block;
-  font-size: 3.9rem;
+  font-size: 1rem;
   white-space: nowrap;
   border-left: 3px solid transparent;
 }
 
 .sidebar-link i {
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   margin-right: 1rem;
 }
 
 a.sidebar-link:hover {
-  background-color: rgba(255, 255, 255, 0.075);
+  background-color: rgba(255, 255, 255, 0.187);
   border-left: 3px solid rgba(133, 215, 141, 0.878);
 }
 
@@ -14428,6 +14428,7 @@ a.sidebar-link:hover {
   top: 1.4rem;
   transform: rotate(-135deg);
   transition: all 0.2s ease-out;
+  color: #f3d5d5;
 }
 
 #sidebar.expand .sidebar-link[data-bs-toggle=collapse].collapsed::after {

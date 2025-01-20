@@ -101,3 +101,23 @@
 - [x] Starting from scratch with the accordion menu.
 
 ---
+
+## 19/05/2025 - 06:50pm / - 1hr
+
+![Dashboard sidebar](./Sidebar.png)
+
+- [x] Finish the accordion menu with icons.
+- [x] Give them the necessary styles.
+- [x] Put the necessary links in the sidebar.
+- [x] Design table and html elemnts for Empresa page.
+
+![Dashboard sidebar](./Empresa.png)
+
+- [x] Create the Empresa table.
+- [x] Mockup for the Empresa page.
+
+![Dashboard sidebar](./EmpresaMockup.png)
+
+- [ ] Start web sketching with section for setup link.
+
+---
