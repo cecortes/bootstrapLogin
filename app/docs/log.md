@@ -118,6 +118,7 @@
 
 ![Dashboard sidebar](./EmpresaMockup.png)
 
+- [ ] Look up the carrousel element in bootstrap.
 - [ ] Start web sketching with section for setup link.
 
 ---
