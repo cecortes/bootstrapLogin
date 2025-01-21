@@ -1,12 +1,19 @@
 "use strict";
 
+import * as Jarvis from "./jarvisLogic.js";
+
 // Ready function jQuery new version
 $(function () {
   /* --> Dom Elements <-- */
-  const $toggleBtn = $("#toggle-btn");
-
+  /*
+   ******************************************************
+   */
+  /* --> Functions <-- */
+  /*
+   ******************************************************
+   */
   /* --> Event Listeners <-- */
-  $toggleBtn.click(function () {
-    $("#sidebar").toggleClass("expand");
-  });
+  /*
+   ******************************************************
+   */
 });

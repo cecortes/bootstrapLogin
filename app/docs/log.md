@@ -122,3 +122,19 @@
 - [ ] Start web sketching with section for setup link.
 
 ---
+
+## 20/05/2025 - 06:50pm / - 08:30pm - 1hr 40min
+
+- [x] Create the Empresa file.
+- [x] Into logic layer, make a funtion to validate the user and redirect as the parameter passed.
+- [x] Modify the dashboard.js to use the redirect function.
+- [x] Modify the sidebar to give all the ids necessary to the links.
+- [x] Modify the sidebar an add the dashboard link.
+- [x] Try to give the sidebar a module pattern.
+- [x] Create the html files for the sidebar links.
+- [x] Add all Dom elements to the sidebar module.
+- [ ] In that page, create the table to list company data and 2 buttons to edit and delete.
+- [ ] Add a button to add a new company.
+- [ ] Create the form to add a new company into a modal.
+
+---

@@ -118,3 +118,53 @@ function ShowModal(title, error) {
   $("#modal-text").text(error);
   $("#modalError").modal("show");
 }
+
+/* --> Routing <-- */
+/* @param {String} Name of the route, same as sidebar links
+ * @actions: Check if user is logged.
+ *           Redirect to the route depending on the parameter passed.
+ * @return none
+ */
+export function Routing(route) {
+  const session = new Session();
+  session.CheckSession();
+
+  if (session.logged) {
+    switch (route) {
+      case "Main":
+        window.location.href = "../html/main.html";
+        break;
+      case "Dashboard":
+        window.location.href = "../html/dashboard.html";
+        break;
+      case "Productos":
+        window.location.href = "../html/products.html";
+        break;
+      case "EntradasSalidas":
+        window.location.href = "../html/movements.html";
+        break;
+      case "Reportes":
+        window.location.href = "../html/reports.html";
+        break;
+      case "Empresa":
+        window.location.href = "../html/company.html";
+        break;
+      case "Usuarios":
+        window.location.href = "../html/users.html";
+        break;
+      case "Almacen":
+        window.location.href = "../html/almacen.html";
+        break;
+      case "Logout":
+        Parse.User.logOut().then(() => {
+          window.location.href = "../../../index.html";
+        });
+        break;
+      default:
+        window.location.href = "../../../index.html";
+        break;
+    }
+  } else {
+    window.location.href = "../../../index.html";
+  }
+}
