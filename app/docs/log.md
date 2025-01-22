@@ -133,8 +133,20 @@
 - [x] Try to give the sidebar a module pattern.
 - [x] Create the html files for the sidebar links.
 - [x] Add all Dom elements to the sidebar module.
-- [ ] In that page, create the table to list company data and 2 buttons to edit and delete.
-- [ ] Add a button to add a new company.
+
+---
+
+## 21/05/2025 - 06:00pm / - 19:44pm - 1hr 44min
+
+- [x] In that page, create the table to list company data and 2 buttons to edit and delete.
+- [x] Add a button to add a new company.
+- [ ] Prettiest the table.
+- [ ] Modify the title or other section to show the company logo.
 - [ ] Create the form to add a new company into a modal.
+- [ ] Create the form to edit a company into a modal.
+- [ ] Start the logic layer to add a new company.
+- [ ] Start the logic layer to edit a company.
+- [ ] Start the logic layer to delete a company.
+- [ ] Start the logic layer to list all companies.
 
 ---

@@ -70,8 +70,8 @@ $(function () {
       // Check if user is logged
       if (session.logged) {
         // Redirect to home
-        //window.location.href = "home.html";
-        console.log("Login: " + session.token);
+        window.location.href = "./app/html/dashboard.html";
+        //console.log("Login: " + session.token);
         ClearFields();
       } else {
         // Show error

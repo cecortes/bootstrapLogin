@@ -25,6 +25,18 @@ $custom-colors: (
 // Merge the maps
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
+$table-variants: (
+  "primary":
+    shift-color(
+      map-get(
+        $map: $custom-colors,
+        $key: "negro",
+      ),
+      $table-bg-scale
+    ),
+  "dark": $dark,
+);
+
 // Include the Bootstrap source files
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
@@ -277,6 +289,13 @@ a {
   width: 100%;
   overflow: hidden;
   transition: all 0.35s ease-in-out;
+  background-color: map-get($map: $custom-colors, $key: "negro");
+}
+
+.datawrapper {
+  min-height: 100vh;
+  width: 100%;
+  transition: all 0.35 ease-in-out;
   background-color: map-get($map: $custom-colors, $key: "negro");
 }
 

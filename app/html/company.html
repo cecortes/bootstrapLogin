@@ -147,9 +147,78 @@
     <!-- Main Content -->
     <div class="main p-3">
 
-      <div class="text-center">
+      <!-- Title -->
+      <div class="container-sm text-center">
+        
+        <!-- Title -->
+        <h1 class="title">Datos de Empresa</h1>
 
-        <h1>Empresas Content</h1>
+      </div>
+
+      <!-- Content Container -->
+      <div class="container-lg text-center mt-5 mb-5 table-responsive">
+
+        <!-- Data Table -->
+        <table class="table table-dark table-hover table-bordered border-texto align-middle">
+          
+          <!-- Table Head -->
+          <thead>
+            <!-- Table Row -->
+            <tr class="table-primary">
+              <!-- Table Header -->
+              <th scope="col">Nombre</th>
+              <!-- Table Header -->
+              <th scope="col">RFC</th>
+              <!-- Table Header -->
+              <th scope="col">Dirección</th>
+              <!-- Table Header -->
+              <th scope="col">Teléfono</th>
+              <!-- Table Header -->
+              <th scope="col">Correo</th>
+              <!-- Table Header -->
+              <th scope="col">Editar</th>
+              <!-- Table Header -->
+              <th scope="col">Borrar</th>
+            </tr>
+          </thead>
+
+          <!-- Table Body -->
+          <tbody class="table-group-divider">
+
+            <!-- Table Row -->
+            <tr>
+              <!-- Table Data -->
+              <th scope="row" id="name">Cafe Rentoy</th>
+              <!-- Table Data -->
+              <td id="rfc">LOCC1234562G</td>
+              <!-- Table Data -->
+              <td id="address">14 Pte # 365</td>
+              <!-- Table Data -->
+              <td id="phone">2225122334</td>
+              <!-- Table Data -->
+              <td id="email">micorreo@correo.com</td>
+              <!-- Table Data -->
+              <td>
+                <!-- Edit Button -->
+                <button class="btn btn-primary" id="edit-btn">Editar</button>
+              </td>
+              <td>
+                <!-- Delete Button -->
+                <button class="btn btn-danger" id="del-btn">Borrar</button>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <!-- Action Container -->
+      <div class="container-sm text-center mt-5">
+
+        <!-- Action Button -->
+        <button class="btn btn-primary" id="add-btn">Agregar Empresa</button>
 
       </div>
 
