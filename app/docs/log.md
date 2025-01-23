@@ -140,8 +140,13 @@
 
 - [x] In that page, create the table to list company data and 2 buttons to edit and delete.
 - [x] Add a button to add a new company.
-- [ ] Prettiest the table.
-- [ ] Modify the title or other section to show the company logo.
+
+---
+
+## 22/05/2025 - 06:10pm / - 7:07pm - 57min
+
+- [x] Prettiest the table.
+- [x] Modify the title or other section to show the company logo.
 - [ ] Create the form to add a new company into a modal.
 - [ ] Create the form to edit a company into a modal.
 - [ ] Start the logic layer to add a new company.

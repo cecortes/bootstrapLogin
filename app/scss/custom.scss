@@ -11,6 +11,7 @@ $enable-shadows: true;
 $custom-colors: (
   "primario": #146c43,
   "texto": #4dd4ac,
+  "texto-sec": #4dd4ab87,
   "sugerencia": #5e7a70,
   "text-pri": #0c3f26,
   "text-alert": #ec515b,
@@ -35,6 +36,11 @@ $table-variants: (
       $table-bg-scale
     ),
   "dark": $dark,
+  "header":
+    map-get(
+      $map: $custom-colors,
+      $key: "texto-sec",
+    ),
 );
 
 // Include the Bootstrap source files
@@ -404,4 +410,27 @@ a.sidebar-link:hover {
 #sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
   transform: rotate(45deg);
   transition: all 0.2s ease-out;
+}
+
+/*
+ * Tables STYLES
+ *                 
+*/
+
+.tabla {
+  color: map-get($map: $custom-colors, $key: "texto") !important;
+}
+
+.cabecera {
+  background-color: map-get($map: $custom-colors, $key: "fondo") !important;
+}
+
+/*
+ * Images STYLES
+ *                 
+*/
+
+.redonda {
+  border-radius: 25%;
+  aspect-ratio: 1/1;
 }
