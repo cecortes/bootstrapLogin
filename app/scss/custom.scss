@@ -21,6 +21,8 @@ $custom-colors: (
   "terciario-transparente": rgba(#a03a0b, 0.1),
   "terciario": #fa5754,
   "fondoSideBar": #1a1c1a,
+  "label": #d9ea76c4,
+  "inputbg": #626662f9,
 );
 
 // Merge the maps
@@ -62,6 +64,21 @@ $table-variants: (
   --bs-social-shadow: rgba(133, 215, 148, 0.878) 0px 12px 10px -8px;
   --bs-input-alert: #f0727a 0px 10px 10px -5px;
   --bs-modal-bg: rgba(244, 61, 29, 0.4);
+  --bs-g-rojo: linear-gradient(
+    45deg,
+    rgb(233, 64, 59) 0%,
+    rgb(239, 136, 133) 100%
+  );
+  --bs-g-amarillo: linear-gradient(
+    45deg,
+    rgb(161, 188, 44) 0%,
+    rgb(218, 239, 133) 100%
+  );
+  --bs-g-green: linear-gradient(
+    45deg,
+    rgb(46, 188, 44) 0%,
+    rgb(133, 239, 179) 100%
+  );
 }
 
 // Custom styles
@@ -433,4 +450,61 @@ a.sidebar-link:hover {
 .redonda {
   border-radius: 25%;
   aspect-ratio: 1/1;
+}
+
+/*
+ * MODAL STYLES
+ *                 
+*/
+.glassmorph2 {
+  /* From https://css.glass */
+  background: rgba(77, 134, 122, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(42, 71, 40, 0.1);
+  backdrop-filter: blur(7.6px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.inputcustom {
+  border: none;
+  outline: none;
+}
+
+.inputcustom:focus {
+  border-inline: 2px solid map-get($theme-colors, "texto");
+  color: map-get($map: $custom-colors, $key: "text-texto");
+  box-shadow: var(--bs-input-shadow);
+}
+
+.btn-rojo {
+  background: var(--bs-g-rojo);
+  color: var(--bs-fondo);
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-rojo:hover {
+  background: var(--bs-negro);
+  color: var(--bs-texto);
+}
+
+.btn-clear {
+  background: var(--bs-g-amarillo);
+  color: var(--bs-negro);
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-clear:hover {
+  background: var(--bs-negro);
+  color: var(--bs-texto);
+}
+
+.btn-save {
+  background: var(--bs-g-green);
+  color: var(--bs-negro);
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-save:hover {
+  background: var(--bs-negro);
+  color: var(--bs-texto);
 }

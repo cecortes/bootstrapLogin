@@ -153,7 +153,7 @@
 ## 25/05/2025 - 08:10am / - 1hr 17min
 
 - [x] Create the form to add a new company into a modal.
-- [ ] Modify the styles of the modal.
+- [x] Modify the styles of the modal.
 - [ ] Create the form to edit a company into a modal.
 - [ ] Start the logic layer to add a new company.
 - [ ] Start the logic layer to edit a company.
