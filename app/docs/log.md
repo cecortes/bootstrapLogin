@@ -150,7 +150,7 @@
 
 ---
 
-## 25/05/2025 - 08:10am / - 2hr 42min
+## 25/05/2025 - 08:10am / - 3hr 42min
 
 - [x] Create the form to add a new company into a modal.
 - [x] Modify the styles of the modal.
