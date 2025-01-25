@@ -14332,6 +14332,11 @@ textarea.form-control-lg {
     rgb(46, 188, 44) 0%,
     rgb(133, 239, 179) 100%
   );
+  --bs-g-blue: linear-gradient(
+    45deg,
+    rgb(44, 188, 181) 0%,
+    rgb(133, 227, 239) 100%
+  );
 }
 
 a {
@@ -14743,6 +14748,17 @@ a.sidebar-link:hover {
 }
 
 .btn-save:hover {
+  background: var(--bs-negro);
+  color: var(--bs-texto);
+}
+
+.btn-edit {
+  background: var(--bs-g-blue);
+  color: var(--bs-negro);
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-edit:hover {
   background: var(--bs-negro);
   color: var(--bs-texto);
 }
