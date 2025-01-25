@@ -147,7 +147,13 @@
 
 - [x] Prettiest the table.
 - [x] Modify the title or other section to show the company logo.
-- [ ] Create the form to add a new company into a modal.
+
+---
+
+## 25/05/2025 - 08:10am / - 1hr 17min
+
+- [x] Create the form to add a new company into a modal.
+- [ ] Modify the styles of the modal.
 - [ ] Create the form to edit a company into a modal.
 - [ ] Start the logic layer to add a new company.
 - [ ] Start the logic layer to edit a company.

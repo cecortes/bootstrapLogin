@@ -243,6 +243,164 @@
     </div>
 
   </main>
+
+  <!-- Modal Form Container -->
+  <div id="modalAddCompany" class="modal fade" tabindex="-1">
+
+    <!-- Modal Dialog -->
+    <div class="modal-dialog-centered modal-dialog modal-lg">
+
+      <!-- Modal Content -->
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+
+          <!-- Modal Title -->
+          <h5 class="modal-title ps-4">Agregar Empresa</h5>
+
+          <!-- Close Button -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+
+          <!-- Form -->
+          <form id="company-form">
+
+            <!-- Form Group Name -->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="name" class="form-label">Nombre</label>
+
+              <!-- Input -->
+              <input type="text" class="form-control" id="name" name="name" required>
+
+            </div>
+
+            <!-- Form Group RFC -->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="rfc" class="form-label">RFC</label>
+
+              <!-- Input -->
+              <input type="text" class="form-control" id="rfc" name="rfc" required>
+
+            </div>
+
+            <!-- Form Group Logo -->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="logo" class="form-label">Logo</label>
+
+              <!-- Input -->
+              <input type="file" class="form-control" id="logo" name="logo" required>
+
+            </div>
+
+            <!-- Form Group Address -->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="address" class="form-label">Dirección</label>
+
+              <!-- Input -->
+              <input type="text" class="form-control" id="address" name="address" required>
+
+            </div>
+
+            <!-- Form Group Tel -->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="phone" class="form-label">Teléfono</label>
+
+              <!-- Input -->
+              <input type="text" class="form-control" id="phone" name="phone" required>
+
+            </div>
+
+            <!-- Form Group Correo -->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="email" class="form-label">Correo</label>
+
+              <!-- Input -->
+              <input type="email" class="form-control" id="email" name="email" required>
+
+            </div>
+
+            <!-- Form Group Giro Select-->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="giro" class="form-label">Giro</label>
+
+              <!-- Select Input -->
+              <select class="form-select" id="giro" name="giro" required>
+                <!-- Option -->
+                <option value="1">Bar & Restaurant</option>
+                <!-- Option -->
+                <option value="2">Industria</option>
+                <!-- Option -->
+                <option value="3">Servicios</option>
+                <!-- Option -->
+                <option value="4">Comercio</option>
+              </select>
+
+            </div>
+
+            <!-- Form Group No de Empleados Select -->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="noEmpleados" class="form-label"># Empleados</label>
+
+              <!-- Select Input -->
+              <select class="form-select" id="noEmpleados" name="noEmpleados" required>
+                <!-- Option -->
+                <option value="1">1-10</option>
+                <!-- Option -->
+                <option value="2">11-20</option>
+                <!-- Option -->
+                <option value="3">+20</option>
+              </select>
+
+            </div>
+
+          </form>
+
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer d-flex justify-content-around">
+
+          <!-- Close Button -->
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+
+          <!-- Clean Fields Button -->
+          <button type="button" class="btn btn-warning" id="clean-btn">Limpiar Campos</button>
+
+          <!-- Save Button -->
+          <button type="button" class="btn btn-primary" id="save-btn">Guardar</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="../js/bootstrap.bundle.js"></script>
   
 </body>
+
 </html>
