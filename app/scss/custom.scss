@@ -84,6 +84,11 @@ $table-variants: (
     rgb(44, 188, 181) 0%,
     rgb(133, 227, 239) 100%
   );
+  --bs-g-blue2: linear-gradient(
+    45deg,
+    rgb(31, 141, 135) 0%,
+    rgb(105, 181, 192) 100%
+  );
 }
 
 // Custom styles
@@ -447,6 +452,17 @@ a.sidebar-link:hover {
   background-color: map-get($map: $custom-colors, $key: "fondo") !important;
 }
 
+.btn-editar {
+  background: var(--bs-g-blue);
+  color: var(--bs-negro);
+  transition: all 0.2s ease-in;
+}
+
+.btn-editar:hover {
+  background: var(--bs-g-blue2);
+  color: var(--bs-fondo);
+}
+
 /*
  * Images STYLES
  *                 
@@ -484,7 +500,7 @@ a.sidebar-link:hover {
 .btn-rojo {
   background: var(--bs-g-rojo);
   color: var(--bs-fondo);
-  transition: all 0.5s ease-in-out;
+  transition: all 0.7s ease-in-out;
 }
 
 .btn-rojo:hover {
@@ -495,7 +511,7 @@ a.sidebar-link:hover {
 .btn-clear {
   background: var(--bs-g-amarillo);
   color: var(--bs-negro);
-  transition: all 0.5s ease-in-out;
+  transition: all 0.7s ease-in-out;
 }
 
 .btn-clear:hover {
@@ -506,7 +522,7 @@ a.sidebar-link:hover {
 .btn-save {
   background: var(--bs-g-green);
   color: var(--bs-negro);
-  transition: all 0.5s ease-in-out;
+  transition: all 0.7s ease-in-out;
 }
 
 .btn-save:hover {
@@ -517,7 +533,7 @@ a.sidebar-link:hover {
 .btn-edit {
   background: var(--bs-g-blue);
   color: var(--bs-negro);
-  transition: all 0.5s ease-in-out;
+  transition: all 0.7s ease-in-out;
 }
 
 .btn-edit:hover {

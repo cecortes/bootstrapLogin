@@ -150,13 +150,14 @@
 
 ---
 
-## 25/05/2025 - 08:10am / - 3hr 42min
+## 25/05/2025 - 08:10am / - 6hrs
 
 - [x] Create the form to add a new company into a modal.
 - [x] Modify the styles of the modal.
 - [x] Create the form to edit a company into a modal.
 - [x] Modify the styles of the modal.
-- [ ] Start the logic layer to add a new company.
+- [x] Start the logic layer to add a new company.
+- [ ] Finish the logic layer to add a new company.
 - [ ] Start the logic layer to edit a company.
 - [ ] Start the logic layer to delete a company.
 - [ ] Start the logic layer to list all companies.

@@ -16,6 +16,19 @@ import * as DbLogin from "./dbLogin.js";
  * @param {String} token
  * @param {Boolean} logged
  * @method CheckSession
+ *
+ * Class Company
+ * @param {String} name
+ * @param {String} rfc
+ * @param {String} logo
+ * @param {String} address
+ * @param {String} phone
+ * @param {String} mail
+ * @param {String} giro
+ * @param {String} empleados
+ * @param {Boolean} validation
+ * @method Validate
+ * @method Save
  */
 
 export class Session {
@@ -96,6 +109,109 @@ export class User {
     // We need to await the Promise and catch the error is mandatory.
     try {
       const result = await DbLogin.Login(user);
+      session.token = result;
+      session.logged = true;
+      session.msg = "Successful login";
+    } catch (error) {
+      session.token = "";
+      session.logged = false;
+      session.msg = error;
+    } finally {
+      return session;
+    }
+  }
+}
+
+export class Company {
+  // Constructor
+  constructor(name, rfc, logo, address, phone, mail, giro, empleados) {
+    this.name = name;
+    this.rfc = rfc;
+    this.logo = logo;
+    this.address = address;
+    this.phone = phone;
+    this.mail = mail;
+    this.giro = giro;
+    this.empleados = empleados;
+    this.validation = false;
+  }
+
+  // Validate company
+  Validate() {
+    // Check if inputs are empty
+    if (
+      this.name === "" &&
+      this.rfc === "" &&
+      this.address === "" &&
+      this.phone === "" &&
+      this.mail === ""
+    ) {
+      this.validation = false;
+      // Add error class to inputs
+      $("#in_name").addClass("input-alert");
+      $("#in_rfc").addClass("input-alert");
+      $("#in_address").addClass("input-alert");
+      $("#in_phone").addClass("input-alert");
+      $("#in_email").addClass("input-alert");
+      // Add error message
+      $("#in_name").val("Por favor, complete los campos");
+      $("#in_rfc").val("Por favor, complete los campos");
+      $("#in_address").val("Por favor, complete los campos");
+      $("#in_phone").val("Por favor, complete los campos");
+      $("#in_email").val("Por favor, complete los campos");
+    } else if (this.name === "") {
+      this.validation = false;
+      // Add error class to input
+      $("#in_name").addClass("input-alert");
+      // Add error message
+      $("#in_name").val("Por favor, complete los campos");
+    } else if (this.rfc === "") {
+      this.validation = false;
+      // Add error class to input
+      $("#in_rfc").addClass("input-alert");
+      // Add error message
+      $("#in_rfc").val("Por favor, complete los campos");
+    } else if (this.address === "") {
+      this.validation = false;
+      // Add error class to input
+      $("#in_address").addClass("input-alert");
+      // Add error message
+      $("#in_address").val("Por favor, complete los campos");
+    } else if (this.phone === "") {
+      this.validation = false;
+      // Add error class to input
+      $("#in_phone").addClass("input-alert");
+      // Add error message
+      $("#in_phone").val("Por favor, complete los campos");
+    } else if (this.mail === "") {
+      this.validation = false;
+      // Add error class to input
+      $("#in_email").addClass("input-alert");
+      // Add error message
+      $("#in_email").val("Por favor, complete los campos");
+    } else {
+      this.validation = true;
+    }
+
+    //Check if email is valid mail with regex
+    if (
+      this.validation &&
+      !this.mail.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
+    ) {
+      this.validation = false;
+      // Add error class to input
+      $("#in_email").addClass("input-alert");
+      // Add error message
+      $("#in_email").val("Por favor, ingrese un mail válido");
+    }
+  }
+
+  // Connect to database
+  async Save(company) {
+    const session = new Session();
+    // We need to await the Promise and catch the error is mandatory.
+    try {
+      const result = await DbLogin.SaveCompany(company);
       session.token = result;
       session.logged = true;
       session.msg = "Successful login";
