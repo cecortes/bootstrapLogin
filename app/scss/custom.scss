@@ -20,6 +20,8 @@ $custom-colors: (
   "fondo": #e0e0e0,
   "terciario-transparente": rgba(#a03a0b, 0.1),
   "terciario": #fa5754,
+  "ok-transparente": rgba(#30a00b, 0.1),
+  "ok": #80fa54,
   "fondoSideBar": #1a1c1a,
   "label": #d9ea76c4,
   "inputbg": #626662f9,
@@ -308,6 +310,56 @@ a {
   background: var(--bs-terciario);
 }
 
+.greenGradient {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 0 10px 0 10px;
+  padding: 0 10px;
+  background: var(--bs-negro);
+  border: none;
+  color: var(--bs-fondo);
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 10px;
+  height: 42px;
+  width: 10rem;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.greenGradient:after {
+  content: " ";
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(149, 253, 100, 0.529),
+    var(--bs-ok-transparente)
+  );
+  position: absolute;
+  transition: all 0.4s ease-in-out;
+  right: 0;
+  color: var(--bs-negro);
+}
+
+.greenGradient:hover::after {
+  right: auto;
+  left: 0;
+  width: 100%;
+  color: var(--bs-negro);
+}
+
+.greenGradient:hover {
+  color: #11171c;
+  animation: scaleUp 0.6s ease-in-out;
+  background: var(--bs-ok);
+}
+
 /*
  * SIDEBAR STYLES
  *                 
@@ -461,6 +513,11 @@ a.sidebar-link:hover {
 .btn-editar:hover {
   background: var(--bs-g-blue2);
   color: var(--bs-fondo);
+}
+
+.ocultar {
+  //hide element
+  display: none;
 }
 
 /*

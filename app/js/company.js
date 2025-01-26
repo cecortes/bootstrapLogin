@@ -28,6 +28,9 @@ $(function () {
   /*
    * Global Variables
    */
+  // Create session object
+  const session = new Jarvis.Session();
+  let file = "";
   /*
    ******************************************************
    */
@@ -35,6 +38,33 @@ $(function () {
   /*
    * Functions
    */
+
+  /* --> OpenSession() */
+  /* @params: none
+   * @return: none
+   * @description: Create session object and check if user is logged
+   *               If is not logged, Redirect to login page.
+   * @throws: none
+   */
+  async function OpenSession() {
+    session.CheckSession();
+    // Validate session
+    await session.ValidateSession();
+  }
+
+  function CleanAddCompanyModal() {
+    inputName.val("");
+    inputRFC.val("");
+    inputLogo.val("");
+    inputAddress.val("");
+    inputPhone.val("");
+    inputMail.val("");
+    selectGiro.val("");
+    selectEmpleados.val("");
+
+    // Hide modal
+    $addCompanyModal.modal("hide");
+  }
   /*
    ****************************************************
    */
@@ -42,9 +72,25 @@ $(function () {
   /*
    * Event handlers
    */
+
+  // When document is loaded
+  try {
+    OpenSession();
+    // Get all companies
+    Jarvis.GetDataCompanies(session.token);
+  } catch (error) {
+    console.error(error);
+  }
+
   // Add company button
   $addCompanyBtn.click(function () {
     $addCompanyModal.modal("show");
+  });
+
+  // File input change
+  inputLogo.change(function (e) {
+    // Get file
+    file = e.target.files[0];
   });
 
   // Save company button
@@ -53,9 +99,10 @@ $(function () {
 
     // Create company object
     const company = new Jarvis.Company(
+      session.token,
       inputName.val(),
       inputRFC.val(),
-      inputLogo.val(),
+      file,
       inputAddress.val(),
       inputPhone.val(),
       inputMail.val(),
@@ -68,14 +115,15 @@ $(function () {
 
     // Save company
     if (company.validation) {
-      console.log(company);
-      console.log("Company saved");
-      return;
-      company.Save();
-      $addCompanyModal.modal("hide");
-    } else {
-      ShowModal("Error", "Faltan campos por llenar");
+      if (await company.SaveEmpresa(company)) {
+        CleanAddCompanyModal();
+      } else {
+        CleanAddCompanyModal();
+      }
     }
+
+    // Get all companies
+    await Jarvis.GetDataCompanies(session.token);
   });
 
   // Remove error class on input focus

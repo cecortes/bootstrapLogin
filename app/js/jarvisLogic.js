@@ -1,6 +1,7 @@
 "use strict";
 
 import * as DbLogin from "./dbLogin.js";
+import * as DbCompany from "./dbCompany.js";
 
 /*
  * Global Variables
@@ -16,8 +17,10 @@ import * as DbLogin from "./dbLogin.js";
  * @param {String} token
  * @param {Boolean} logged
  * @method CheckSession
+ * @method async ValidateSession
  *
  * Class Company
+ * @param {String} userId
  * @param {String} name
  * @param {String} rfc
  * @param {String} logo
@@ -28,7 +31,7 @@ import * as DbLogin from "./dbLogin.js";
  * @param {String} empleados
  * @param {Boolean} validation
  * @method Validate
- * @method Save
+ * @method async SaveEmpresa
  */
 
 export class Session {
@@ -48,6 +51,19 @@ export class Session {
     } else {
       this.logged = false;
       this.token = "";
+    }
+  }
+
+  // Validate session
+  async ValidateSession() {
+    if (Parse.User.current()) {
+      this.logged = true;
+      this.token = Parse.User.current().id;
+    } else {
+      this.logged = false;
+      this.token = "";
+      // Redirect to login page
+      window.location.href = "../../../index.html";
     }
   }
 }
@@ -124,7 +140,8 @@ export class User {
 
 export class Company {
   // Constructor
-  constructor(name, rfc, logo, address, phone, mail, giro, empleados) {
+  constructor(userid, name, rfc, logo, address, phone, mail, giro, empleados) {
+    this.userid = userid;
     this.name = name;
     this.rfc = rfc;
     this.logo = logo;
@@ -204,35 +221,65 @@ export class Company {
       // Add error message
       $("#in_email").val("Por favor, ingrese un mail válido");
     }
-  }
 
-  // Connect to database
-  async Save(company) {
-    const session = new Session();
-    // We need to await the Promise and catch the error is mandatory.
-    try {
-      const result = await DbLogin.SaveCompany(company);
-      session.token = result;
-      session.logged = true;
-      session.msg = "Successful login";
-    } catch (error) {
-      session.token = "";
-      session.logged = false;
-      session.msg = error;
-    } finally {
-      return session;
+    // Check if userid is empty
+    if (this.userid === "") {
+      this.validation = false;
+    }
+
+    // Check if logo is empty
+    if (this.logo === "") {
+      this.logo = "../assets/noimg.png";
     }
   }
-}
 
-/* --> ShowModal <-- */
-/* @param {String} title - Modal title
- * @param {String} error - Modal text
- */
-function ShowModal(title, error) {
-  $("#modal-title").text(title);
-  $("#modal-text").text(error);
-  $("#modalError").modal("show");
+  // Save to database
+  async SaveEmpresa(Empresa) {
+    // We need to await the Promise and catch the error is mandatory.
+    try {
+      const result = await DbCompany.Save(Empresa);
+      ShowModalOk("Agregar Empresa:", "Empresa registrada con éxito");
+      return true;
+    } catch (error) {
+      ShowModalError("Error " + error.code, error.message);
+      return false;
+    }
+  }
+
+  // Get all companies
+  async GetAllCompanies(id) {
+    // We need to await the Promise and catch the error is mandatory.
+    try {
+      // Clear table
+      $("#company-table").empty();
+      const result = await DbCompany.GetCompanies(id);
+      // Trough the result array to show the companies
+      for (let i = 0; i < result.length; i++) {
+        // Add data to the table
+        $("#company-table").append(
+          '<tr><th scope="row" id="name">' +
+            result[i].get("nombreEmpresa") +
+            '</th><td id="obj" class="ocultar">' +
+            result[i].id +
+            '</td><td id="rfc">' +
+            result[i].get("rfcEmpresa") +
+            '</td><td id="address">' +
+            result[i].get("dirEmpresa") +
+            '</td><td id="phone">' +
+            result[i].get("telEmpresa") +
+            '</td><td id="email">' +
+            result[i].get("mailEmpresa") +
+            '</td><td><button class="btn btn-editar" id="edit-btn">' +
+            "Editar" +
+            '</button></td><td><button class="btn btn-danger" id="del-btn">' +
+            "Borrar" +
+            "</button></td></tr>"
+        );
+      }
+    } catch (error) {
+      ShowModalError("Error " + error.code, error.message);
+    }
+  }
 }
 
 /* --> Routing <-- */
@@ -282,5 +329,60 @@ export function Routing(route) {
     }
   } else {
     window.location.href = "../../../index.html";
+  }
+}
+
+/* --> ShowModal <-- */
+/* @param {String} title - Modal title
+ * @param {String} error - Modal text
+ */
+function ShowModalError(title, error) {
+  $("#modal-title").text(title);
+  $("#modal-text").text(error);
+  $("#modalError").modal("show");
+}
+
+/* --> ShowModalOk <-- */
+/* @param {String} title - Modal title
+ * @param {String} error - Modal text
+ */
+function ShowModalOk(title, error) {
+  $("#modal-titleOk").text(title);
+  $("#modal-textOk").text(error);
+  $("#modalSuccess").modal("show");
+}
+
+// Get all companies
+export async function GetDataCompanies(id) {
+  // We need to await the Promise and catch the error is mandatory.
+  try {
+    // Clear table
+    $("#company-table").empty();
+    const result = await DbCompany.GetCompanies(id);
+    // Trough the result array to show the companies
+    for (let i = 0; i < result.length; i++) {
+      // Add data to the table
+      $("#company-table").append(
+        '<tr><th scope="row" id="name">' +
+          result[i].get("nombreEmpresa") +
+          '</th><td id="obj" class="ocultar">' +
+          result[i].id +
+          '</td><td id="rfc">' +
+          result[i].get("rfcEmpresa") +
+          '</td><td id="address">' +
+          result[i].get("dirEmpresa") +
+          '</td><td id="phone">' +
+          result[i].get("telEmpresa") +
+          '</td><td id="email">' +
+          result[i].get("mailEmpresa") +
+          '</td><td><button class="btn btn-editar" id="edit-btn">' +
+          "Editar" +
+          '</button></td><td><button class="btn btn-danger" id="del-btn">' +
+          "Borrar" +
+          "</button></td></tr>"
+      );
+    }
+  } catch (error) {
+    ShowModalError("Error " + error.code, error.message);
   }
 }
