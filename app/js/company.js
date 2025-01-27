@@ -133,14 +133,46 @@ $(function () {
     // Get name of the company from the row where the button was clicked
     const id = $(this).closest("tr").find("td:eq(0)").text();
     const name = $(this).closest("tr").find("th:eq(0)").text();
-    console.log(id);
-    console.log(name);
 
     // Delete company
     if (await Jarvis.DeleteEmpresa(id)) {
       // Get all companies
       await Jarvis.GetDataCompanies(session.token);
     }
+  });
+
+  /* --> Edit company button on table <-- !!!!IMPORTANT!!!! */
+  $("#company-table").on("click", ".btn-editar", function (e) {
+    e.preventDefault();
+
+    // Get name of the company from the row where the button was clicked
+    const id = $(this).closest("tr").find("td:eq(0)").text();
+    const name = $(this).closest("tr").find("th:eq(0)").text();
+    const rfc = $(this).closest("tr").find("td:eq(1)").text();
+    const address = $(this).closest("tr").find("td:eq(2)").text();
+    const phone = $(this).closest("tr").find("td:eq(3)").text();
+    const mail = $(this).closest("tr").find("td:eq(4)").text();
+    const giro = $(this).closest("tr").find("td:eq(5)").text();
+    const empleados = $(this).closest("tr").find("td:eq(6)").text();
+    const logoUrl = $(this).closest("tr").find("td:eq(7)").text();
+
+    // Create company object and set values
+    const companyEdit = new Jarvis.Company(
+      session.token,
+      name,
+      rfc,
+      logoUrl,
+      address,
+      phone,
+      mail,
+      giro,
+      empleados
+    );
+    console.log(companyEdit);
+    return;
+
+    // Get company data
+    Jarvis.GetEmpresaById(session.token, id);
   });
 
   // Remove error class on input focus

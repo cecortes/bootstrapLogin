@@ -163,8 +163,10 @@
 ## 26/05/2025 - 08:05am / - 9hrs
 
 - [x] Finish the logic layer to add a new company.
-- [ ] Start the logic layer to edit a company.
+- [x] Start the logic layer to edit a company.
+- [x] Agregar los datos faltantes en la tabla de empresas con la opción de ocultar.
 - [x] Start the logic layer to delete a company.
 - [x] Start the logic layer to list all companies.
+- [ ] Acompletar la funcion de editar para pasar los datos al modal.
 
 ---

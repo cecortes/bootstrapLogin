@@ -331,6 +331,8 @@ export async function GetDataCompanies(id) {
     const result = await DbCompany.GetCompanies(id);
     // Trough the result array to show the companies
     for (let i = 0; i < result.length; i++) {
+      // Get image URL
+      const logo = result[i].get("logoEmpresa");
       // Add data to the table
       $("#company-table").append(
         '<tr><th scope="row" id="name">' +
@@ -345,6 +347,12 @@ export async function GetDataCompanies(id) {
           result[i].get("telEmpresa") +
           '</td><td id="email">' +
           result[i].get("mailEmpresa") +
+          '</td><td id="giro" class="ocultar">' +
+          result[i].get("giroEmpresa") +
+          '</td><td id="empleados" class="ocultar">' +
+          result[i].get("noEmpleadosEmpresa") +
+          '</td><td id="logo" class="ocultar">' +
+          logo.url() +
           '</td><td><button class="btn btn-editar" id="edit-btn">' +
           "Editar" +
           '</button></td><td><button class="btn btn-danger" id="del-btn">' +
