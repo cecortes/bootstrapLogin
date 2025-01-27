@@ -126,6 +126,23 @@ $(function () {
     await Jarvis.GetDataCompanies(session.token);
   });
 
+  /*  --> Delete company button on table <-- !!!!IMPORTANT!!!! */
+  $("#company-table").on("click", ".btn-danger", async function (e) {
+    e.preventDefault();
+
+    // Get name of the company from the row where the button was clicked
+    const id = $(this).closest("tr").find("td:eq(0)").text();
+    const name = $(this).closest("tr").find("th:eq(0)").text();
+    console.log(id);
+    console.log(name);
+
+    // Delete company
+    if (await Jarvis.DeleteEmpresa(id)) {
+      // Get all companies
+      await Jarvis.GetDataCompanies(session.token);
+    }
+  });
+
   // Remove error class on input focus
   inputName.focus(function () {
     // Check if input has error class

@@ -160,11 +160,11 @@
 
 ---
 
-## 26/05/2025 - 08:05am / - 8hrs
+## 26/05/2025 - 08:05am / - 9hrs
 
 - [x] Finish the logic layer to add a new company.
 - [ ] Start the logic layer to edit a company.
-- [ ] Start the logic layer to delete a company.
+- [x] Start the logic layer to delete a company.
 - [x] Start the logic layer to list all companies.
 
 ---

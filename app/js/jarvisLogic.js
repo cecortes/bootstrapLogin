@@ -245,41 +245,6 @@ export class Company {
       return false;
     }
   }
-
-  // Get all companies
-  async GetAllCompanies(id) {
-    // We need to await the Promise and catch the error is mandatory.
-    try {
-      // Clear table
-      $("#company-table").empty();
-      const result = await DbCompany.GetCompanies(id);
-      // Trough the result array to show the companies
-      for (let i = 0; i < result.length; i++) {
-        // Add data to the table
-        $("#company-table").append(
-          '<tr><th scope="row" id="name">' +
-            result[i].get("nombreEmpresa") +
-            '</th><td id="obj" class="ocultar">' +
-            result[i].id +
-            '</td><td id="rfc">' +
-            result[i].get("rfcEmpresa") +
-            '</td><td id="address">' +
-            result[i].get("dirEmpresa") +
-            '</td><td id="phone">' +
-            result[i].get("telEmpresa") +
-            '</td><td id="email">' +
-            result[i].get("mailEmpresa") +
-            '</td><td><button class="btn btn-editar" id="edit-btn">' +
-            "Editar" +
-            '</button></td><td><button class="btn btn-danger" id="del-btn">' +
-            "Borrar" +
-            "</button></td></tr>"
-        );
-      }
-    } catch (error) {
-      ShowModalError("Error " + error.code, error.message);
-    }
-  }
 }
 
 /* --> Routing <-- */
@@ -352,7 +317,12 @@ function ShowModalOk(title, error) {
   $("#modalSuccess").modal("show");
 }
 
-// Get all companies
+/* --> GetDataCompanies <-- */
+/* @param {String} id - User id
+ * @actions: Get all companies from the user
+ *           Show the companies in the table
+ * @return none
+ */
 export async function GetDataCompanies(id) {
   // We need to await the Promise and catch the error is mandatory.
   try {
@@ -384,5 +354,24 @@ export async function GetDataCompanies(id) {
     }
   } catch (error) {
     ShowModalError("Error " + error.code, error.message);
+  }
+}
+
+/* --> DeleteEmpresa <-- */
+/* @param {String} id - User id
+ * @param {String} obj - Company id
+ * @actions: Delete company from the user
+ *           Show the companies in the table
+ * @return none
+ */
+export async function DeleteEmpresa(id) {
+  // We need to await the Promise and catch the error is mandatory.
+  try {
+    const result = await DbCompany.DeleteCompanyById(id);
+    ShowModalOk("Eliminar Empresa:", "Empresa eliminada con éxito");
+    return true;
+  } catch (error) {
+    ShowModalError("Error " + error.code, error.message);
+    return false;
   }
 }

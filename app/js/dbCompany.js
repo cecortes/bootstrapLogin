@@ -78,3 +78,33 @@ export async function GetCompanies(userid) {
     );
   });
 }
+
+export async function DeleteCompanyById(id) {
+  // Empresa
+  let Empresa = Parse.Object.extend("Empresa");
+  let query = new Parse.Query(Empresa);
+
+  // New Promise
+  return new Promise((resolve, reject) => {
+    // Find Companies
+    query.get(id).then(
+      (result) => {
+        // The object was retrieved successfully.
+        result.destroy().then(
+          (result) => {
+            // The object was deleted from the Parse Cloud.
+            resolve(result);
+          },
+          (error) => {
+            // The delete failed.
+            reject(error);
+          }
+        );
+      },
+      (error) => {
+        // The object was not retrieved successfully.
+        reject(error);
+      }
+    );
+  });
+}
