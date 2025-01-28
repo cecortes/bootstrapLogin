@@ -65,6 +65,10 @@ export async function GetCompanies(userid) {
   return new Promise((resolve, reject) => {
     // Find Companies
     query.equalTo("userId", userid);
+
+    // Ordenar los resultados por fecha de creación (más recientes ultimo)
+    query.ascending("createdAt");
+
     query.find().then(
       (results) => {
         // Do something with the returned Parse.Object values
@@ -97,6 +101,61 @@ export async function DeleteCompanyById(id) {
           },
           (error) => {
             // The delete failed.
+            reject(error);
+          }
+        );
+      },
+      (error) => {
+        // The object was not retrieved successfully.
+        reject(error);
+      }
+    );
+  });
+}
+
+export async function UpdateCompany(company) {
+  // Parse Logo
+  let parseLogo;
+
+  // Check if company.logo is a file object or a string
+  if (typeof company.logo === "string") {
+    // Get image File from company.logo relative path with Fecth API
+    const fileResponse = await fetch(company.logo);
+    const blobFile = await fileResponse.blob();
+
+    // Create a new Parse File for the image
+    parseLogo = new Parse.File("logo.jpg", blobFile);
+  } else {
+    // Create a new Parse File for the image
+    parseLogo = new Parse.File("logo.jpg", company.logo);
+  }
+
+  // Empresa
+  let Empresa = Parse.Object.extend("Empresa");
+  let query = new Parse.Query(Empresa);
+
+  // New Promise
+  return new Promise((resolve, reject) => {
+    // Find Companies
+    query.get(company.userid).then(
+      (result) => {
+        // The object was retrieved successfully.
+        result.set("nombreEmpresa", company.name);
+        result.set("rfcEmpresa", company.rfc);
+        result.set("logoEmpresa", parseLogo);
+        result.set("dirEmpresa", company.address);
+        result.set("telEmpresa", company.phone);
+        result.set("mailEmpresa", company.mail);
+        result.set("giroEmpresa", company.giro);
+        result.set("noEmpleadosEmpresa", company.empleados);
+
+        result.save().then(
+          (result) => {
+            // The object was updated successfully.
+            resolve(result);
+          },
+          (error) => {
+            // The save failed.
             reject(error);
           }
         );

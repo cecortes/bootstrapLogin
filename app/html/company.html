@@ -164,7 +164,7 @@
           <div class="col-4">
 
             <!-- Logo -->
-            <img src="https://picsum.photos/1000/700?random" alt="Logo" class="img-fluid redonda" width="200px" height="200px">
+            <img src="../assets/noimg.png" alt="Logo" class="img-fluid redonda" width="200px" height="200px" id="logoMain">
 
           </div>
 
@@ -434,14 +434,25 @@
           <!-- Form -->
           <form id="company-form">
 
+            <!-- Form Group Id -->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="idEdit" class="form-label text-label">Id</label>
+
+              <!-- Input -->
+              <input type="text" class="form-control text-texto inputcustom" id="idEdit" name="objectid" readonly>
+
+            </div>
+
             <!-- Form Group Name -->
             <div class="mb-3">
 
               <!-- Label -->
-              <label for="name" class="form-label text-label">Nombre</label>
+              <label for="nameEdit" class="form-label text-label">Nombre</label>
 
               <!-- Input -->
-              <input type="text" class="form-control text-texto inputcustom" id="name" name="name" required>
+              <input type="text" class="form-control text-texto inputcustom" id="nameEdit" name="name" required>
 
             </div>
 
@@ -449,10 +460,10 @@
             <div class="mb-3">
 
               <!-- Label -->
-              <label for="rfc" class="form-label text-label">RFC</label>
+              <label for="rfcEdit" class="form-label text-label">RFC</label>
 
               <!-- Input -->
-              <input type="text" class="form-control text-texto inputcustom" id="rfc" name="rfc" required>
+              <input type="text" class="form-control text-texto inputcustom" id="rfcEdit" name="rfc" required>
 
             </div>
 
@@ -462,14 +473,14 @@
               <div class="row align-items-end">
 
                 <!-- Label -->
-                <label for="logo" class="form-label text-label">Logo</label>
+                <label for="logoEdit" class="form-label text-label">Logo</label>
 
 
                 <!-- Column Logo -->
                 <div class="col-sm-2">
                 
                   <!-- Logo Img -->
-                  <img src="https://picsum.photos/500/500?random" alt="Logo" class="img-fluid redonda" width="100px" height="100px">
+                  <img src="https://picsum.photos/500/500?random" alt="Logo" class="img-fluid redonda" width="100px" height="100px" id="logoEdit">
 
                 </div>
 
@@ -477,7 +488,7 @@
                 <div class="col-sm-10">
 
                   <!-- Input -->
-                  <input type="file" class="form-control text-texto inputcustom" id="logo" name="logo" required>
+                  <input type="file" class="form-control text-texto inputcustom" id="logoEd" name="logo" required>
 
                 </div>
 
@@ -489,10 +500,10 @@
             <div class="mb-3">
 
               <!-- Label -->
-              <label for="address" class="form-label text-label">Dirección</label>
+              <label for="addressEdit" class="form-label text-label">Dirección</label>
 
               <!-- Input -->
-              <input type="text" class="form-control text-texto inputcustom" id="address" name="address" required>
+              <input type="text" class="form-control text-texto inputcustom" id="addressEdit" name="address" required>
 
             </div>
 
@@ -500,10 +511,10 @@
             <div class="mb-3">
 
               <!-- Label -->
-              <label for="phone" class="form-label text-label">Teléfono</label>
+              <label for="telEdit" class="form-label text-label">Teléfono</label>
 
               <!-- Input -->
-              <input type="text" class="form-control text-texto inputcustom" id="phone" name="phone" required>
+              <input type="text" class="form-control text-texto inputcustom" id="telEdit" name="phone" required>
 
             </div>
 
@@ -511,10 +522,10 @@
             <div class="mb-3">
 
               <!-- Label -->
-              <label for="email" class="form-label text-label">Correo</label>
+              <label for="mailEdit" class="form-label text-label">Correo</label>
 
               <!-- Input -->
-              <input type="email" class="form-control text-texto inputcustom" id="email" name="email" required>
+              <input type="email" class="form-control text-texto inputcustom" id="mailEdit" name="email" required>
 
             </div>
 
@@ -522,18 +533,18 @@
             <div class="mb-3">
 
               <!-- Label -->
-              <label for="giro" class="form-label text-label">Giro</label>
+              <label for="giroEdit" class="form-label text-label">Giro</label>
 
               <!-- Select Input -->
-              <select class="form-select text-texto inputcustom" id="giro" name="giro" required>
+              <select class="form-select text-texto inputcustom" id="giroEdit" name="giro" required>
                 <!-- Option -->
-                <option value="1">Bar & Restaurant</option>
+                <option value="Bar & Restaurant">Bar & Restaurant</option>
                 <!-- Option -->
-                <option value="2">Industria</option>
+                <option value="Industria">Industria</option>
                 <!-- Option -->
-                <option value="3">Servicios</option>
+                <option value="Servicios">Servicios</option>
                 <!-- Option -->
-                <option value="4">Comercio</option>
+                <option value="Comercio">Comercio</option>
               </select>
 
             </div>
@@ -542,16 +553,16 @@
             <div class="mb-3">
 
               <!-- Label -->
-              <label for="noEmpleados" class="form-label text-label"># Empleados</label>
+              <label for="noEmpleadosEdit" class="form-label text-label"># Empleados</label>
 
               <!-- Select Input -->
-              <select class="form-select text-texto inputcustom" id="noEmpleados" name="noEmpleados" required>
+              <select class="form-select text-texto inputcustom" id="noEmpleadosEdit" name="noEmpleados" required>
                 <!-- Option -->
-                <option value="1">1-10</option>
+                <option value="1-10">1-10</option>
                 <!-- Option -->
-                <option value="2">11-20</option>
+                <option value="11-20">11-20</option>
                 <!-- Option -->
-                <option value="3">+20</option>
+                <option value="+20">+20</option>
               </select>
 
             </div>

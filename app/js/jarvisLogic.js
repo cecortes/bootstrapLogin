@@ -359,6 +359,10 @@ export async function GetDataCompanies(id) {
           "Borrar" +
           "</button></td></tr>"
       );
+
+      // Load first company logo to main logo
+      let logoMain = result[0].get("logoEmpresa");
+      $("#logoMain").attr("src", logoMain.url());
     }
   } catch (error) {
     ShowModalError("Error " + error.code, error.message);
@@ -367,7 +371,6 @@ export async function GetDataCompanies(id) {
 
 /* --> DeleteEmpresa <-- */
 /* @param {String} id - User id
- * @param {String} obj - Company id
  * @actions: Delete company from the user
  *           Show the companies in the table
  * @return none
@@ -377,6 +380,18 @@ export async function DeleteEmpresa(id) {
   try {
     const result = await DbCompany.DeleteCompanyById(id);
     ShowModalOk("Eliminar Empresa:", "Empresa eliminada con éxito");
+    return true;
+  } catch (error) {
+    ShowModalError("Error " + error.code, error.message);
+    return false;
+  }
+}
+
+export async function EditEmpresa(empresa) {
+  // We need to await the Promise and catch the error is mandatory.
+  try {
+    const result = await DbCompany.UpdateCompany(empresa);
+    ShowModalOk("Editar Empresa:", "Empresa editada con éxito !!!");
     return true;
   } catch (error) {
     ShowModalError("Error " + error.code, error.message);

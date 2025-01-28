@@ -7,6 +7,7 @@ $(function () {
   /*
    * Dom elements
    */
+  var $logoMain = $("#logoMain");
   var $addCompanyModal = $("#modalAddCompany");
   var inputName = $("#in_name");
   var inputRFC = $("#in_rfc");
@@ -19,6 +20,16 @@ $(function () {
   var $btnClean = $("#clean-btn");
   var $btnSave = $("#save-btn");
   var $editCompanyModal = $("#modalEditCompany");
+  var $inputEditId = $("#idEdit");
+  var $inputEditName = $("#nameEdit");
+  var $inputEditRFC = $("#rfcEdit");
+  var $imageEditLogo = $("#logoEdit");
+  var $inputEditLogo = $("#logoEd");
+  var $inputEditAddress = $("#addressEdit");
+  var $inputEditTel = $("#telEdit");
+  var $inputEditMail = $("#mailEdit");
+  var $selectEditGiro = $("#giroEdit");
+  var $inputEditEmpleados = $("#noEmpleadosEdit");
   var $addCompanyBtn = $("#add-btn");
   var $editCompanyBtn = $("#edit-btn");
   /*
@@ -93,6 +104,11 @@ $(function () {
     file = e.target.files[0];
   });
 
+  $inputEditLogo.change(function (e) {
+    // Get file
+    file = e.target.files[0];
+  });
+
   // Save company button
   $btnSave.click(async function (e) {
     e.preventDefault();
@@ -158,7 +174,7 @@ $(function () {
 
     // Create company object and set values
     const companyEdit = new Jarvis.Company(
-      session.token,
+      id,
       name,
       rfc,
       logoUrl,
@@ -168,11 +184,20 @@ $(function () {
       giro,
       empleados
     );
-    console.log(companyEdit);
-    return;
 
-    // Get company data
-    Jarvis.GetEmpresaById(session.token, id);
+    // Pass company object to modal
+    $inputEditId.val(companyEdit.userid);
+    $inputEditName.val(companyEdit.name);
+    $inputEditRFC.val(companyEdit.rfc);
+    $imageEditLogo.attr("src", companyEdit.logo); // <-- Set image src
+    $inputEditAddress.val(companyEdit.address);
+    $inputEditTel.val(companyEdit.phone);
+    $inputEditMail.val(companyEdit.mail);
+    $selectEditGiro.val(companyEdit.giro).change(); // <-- Set selected option
+    $inputEditEmpleados.val(companyEdit.empleados).change(); // <-- Set selected option
+
+    // Show modal
+    $editCompanyModal.modal("show");
   });
 
   // Remove error class on input focus
@@ -237,8 +262,34 @@ $(function () {
   });
 
   // Edit company button
-  $editCompanyBtn.click(function () {
-    $editCompanyModal.modal("show");
+  $editCompanyBtn.click(async function () {
+    // Create company object with values from modal
+    const companyEdited = new Jarvis.Company(
+      $inputEditId.val(),
+      $inputEditName.val(),
+      $inputEditRFC.val(),
+      "",
+      $inputEditAddress.val(),
+      $inputEditTel.val(),
+      $inputEditMail.val(),
+      $selectEditGiro.val(),
+      $inputEditEmpleados.val()
+    );
+
+    // Check if logo changed or empty
+    if ($inputEditLogo.val() !== "") {
+      companyEdited.logo = file;
+    } else {
+      companyEdited.logo = $imageEditLogo.attr("src");
+    }
+
+    // Update company
+    if (await Jarvis.EditEmpresa(companyEdited)) {
+      // Get all companies
+      await Jarvis.GetDataCompanies(session.token);
+      // Hide edit modal
+      $editCompanyModal.modal("hide");
+    }
   });
   /*
    ******************************************************

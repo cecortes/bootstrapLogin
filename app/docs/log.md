@@ -43,7 +43,7 @@
 
 ---
 
-## 11/05/2025 - 13:06pm / - 18:58pm - 5h 52min
+## 01/11/2025 - 13:06pm / - 18:58pm - 5h 52min
 
 - [x] Due to errors in the login form, I will have to redo it.
 - [x] Starting from scratch with the login form and mobile first.
@@ -51,7 +51,7 @@
 
 ---
 
-## 12/05/2025 - 09:39am / - 2hr 20min
+## 12/01/2025 - 09:39am / - 2hr 20min
 
 - [x] Create the database in the server.
 - [x] Create the user table.
@@ -65,7 +65,7 @@
 
 ---
 
-## 13/05/2025 - 07:34pm / - 1hr
+## 13/01/2025 - 07:34pm / - 1hr
 
 - [x] Fix the login form.
 - [x] Optimize the dbLogin.js
@@ -74,7 +74,7 @@
 
 ---
 
-## 14/05/2025 - 06:28pm / - 32min
+## 14/01/2025 - 06:28pm / - 32min
 
 - [x] Create a mockup for the dashboard page, Starting with the sidebar.
 - [x] Define the main actions that the user can perform.
@@ -83,7 +83,7 @@
 
 ---
 
-## 15/05/2025 - 08:54pm / - 2hrs
+## 15/01/2025 - 08:54pm / - 2hrs
 
 - [x] Create the dashboard page.
 - [x] Create all necessary files and folders.
@@ -95,14 +95,14 @@
 
 ---
 
-## 16/05/2025 - 07:08pm / - 3hrs
+## 16/01/2025 - 07:08pm / - 3hrs
 
 - [x] Try again to create the accordion menu with icons.
 - [x] Starting from scratch with the accordion menu.
 
 ---
 
-## 19/05/2025 - 06:50pm / - 1hr
+## 19/01/2025 - 06:50pm / - 1hr
 
 ![Dashboard sidebar](./Sidebar.png)
 
@@ -123,7 +123,7 @@
 
 ---
 
-## 20/05/2025 - 06:50pm / - 08:30pm - 1hr 40min
+## 20/01/2025 - 06:50pm / - 08:30pm - 1hr 40min
 
 - [x] Create the Empresa file.
 - [x] Into logic layer, make a funtion to validate the user and redirect as the parameter passed.
@@ -143,14 +143,14 @@
 
 ---
 
-## 22/05/2025 - 06:10pm / - 7:07pm - 57min
+## 22/01/2025 - 06:10pm / - 7:07pm - 57min
 
 - [x] Prettiest the table.
 - [x] Modify the title or other section to show the company logo.
 
 ---
 
-## 25/05/2025 - 08:10am / - 6hrs
+## 25/01/2025 - 08:10am / - 6hrs
 
 - [x] Create the form to add a new company into a modal.
 - [x] Modify the styles of the modal.
@@ -160,13 +160,24 @@
 
 ---
 
-## 26/05/2025 - 08:05am / - 9hrs
+## 26/01/2025 - 08:05am / - 9hrs
 
 - [x] Finish the logic layer to add a new company.
 - [x] Start the logic layer to edit a company.
 - [x] Agregar los datos faltantes en la tabla de empresas con la opción de ocultar.
 - [x] Start the logic layer to delete a company.
 - [x] Start the logic layer to list all companies.
-- [ ] Acompletar la funcion de editar para pasar los datos al modal.
+
+---
+
+## 27/01/2025 - 05:50pm / -
+
+- [x] Acompletar la funcion de editar para pasar los datos al modal.
+- [x] Mostrar los datos en el modal.
+- [x] Crear la función para editar los datos de la empresa.
+- [x] Probar la edición de la empresa.
+- [x] Arreglar el bug con el logo de la empresa.
+- [x] Modificar la función de GetCompanies para que devuelva ordenado por fecha de creación.
+- [x] Modificar la función de GetCompanies para que muestre el logo de la primera empresa de la tabla.
 
 ---
