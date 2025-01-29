@@ -2,6 +2,7 @@
 
 import * as DbLogin from "./dbLogin.js";
 import * as DbCompany from "./dbCompany.js";
+import * as DbWorker from "./dbWorker.js";
 
 /*
  * Global Variables
@@ -247,6 +248,66 @@ export class Company {
   }
 }
 
+export class Worker {
+  // Constructor
+  constructor(iduser, name, clave, idworker, empresa, idempresa) {
+    this.iduser = iduser;
+    this.name = name;
+    this.clave = clave;
+    this.idworker = idworker;
+    this.empresa = empresa;
+    this.idempresa = idempresa;
+    this.validation = false;
+  }
+
+  // Validate worker
+  Validate() {
+    // Check if inputs are empty
+    if (this.name === "" && this.clave === "") {
+      this.validation = false;
+      // Add error class to inputs
+      $("#in_name").addClass("input-alert");
+      $("#in_clave").addClass("input-alert");
+      // Add error message
+      $("#in_name").val("Por favor, complete los campos");
+      $("#in_clave").val("Por favor, complete los campos");
+    } else if (
+      this.name === "" ||
+      this.name === "Por favor, complete los campos"
+    ) {
+      this.validation = false;
+      // Add error class to input
+      $("#in_name").addClass("input-alert");
+      // Add error message
+      $("#in_name").val("Por favor, complete los campos");
+    } else if (
+      this.clave === "" ||
+      this.clave === "Por favor, complete los campos"
+    ) {
+      this.validation = false;
+      // Add error class to input
+      $("#in_clave").addClass("input-alert");
+      // Add error message
+      $("#in_clave").val("Por favor, complete los campos");
+    } else {
+      this.validation = true;
+    }
+  }
+
+  // Save to database
+  async SaveWorker(worker) {
+    // We need to await the Promise and catch the error is mandatory.
+    try {
+      const result = await DbWorker.Save(worker);
+      ShowModalOk("Agregar Usuario:", "Usuario registrado con éxito");
+      return true;
+    } catch (error) {
+      ShowModalError("Error " + error.code, error.message);
+      return false;
+    }
+  }
+}
+
 /* --> Routing <-- */
 /* @param {String} Name of the route, same as sidebar links
  * @actions: Check if user is logged.
@@ -396,5 +457,31 @@ export async function EditEmpresa(empresa) {
   } catch (error) {
     ShowModalError("Error " + error.code, error.message);
     return false;
+  }
+}
+
+/* --> GetEmpresasByUser <-- */
+/* @param {String} id - User id
+ * @actions: Get all companies from the user
+ *           Fill the select with the companies
+ * @return none
+ */
+export async function GetEmpresasByUser(id) {
+  // We need to await the Promise and catch the error is mandatory.
+  try {
+    const result = await DbCompany.GetCompanies(id);
+    // Trough the result array to show the companies
+    for (let i = 0; i < result.length; i++) {
+      // Add data to the select
+      $("#in_empresa").append(
+        '<option value="' +
+          result[i].id +
+          '">' +
+          result[i].get("nombreEmpresa") +
+          "</option>"
+      );
+    }
+  } catch (error) {
+    ShowModalError("Error " + error.code, error.message);
   }
 }

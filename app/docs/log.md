@@ -182,9 +182,16 @@
 
 ---
 
-## 28/01/2025 - 06:05pm / - 1hr
+## 28/01/2025 - 06:05pm / - 2hr 36min
 
 ![UsersTable](./Usuarios.png)
 
 - [x] Start web sketching for user page.
-- [ ] Start logic layer for user page.
+- [x] Start logic layer for user page.
+- [x] Show add user modal.
+- [x] Create a function to fill the combo box with existing companies.
+- [x] Create a function to add a new user.
+- [x] Create a worker class.
+- [ ] Fill table with users.
+
+---
