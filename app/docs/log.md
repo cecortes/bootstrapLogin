@@ -170,7 +170,7 @@
 
 ---
 
-## 27/01/2025 - 05:50pm / -
+## 27/01/2025 - 05:50pm / - 2hrs 25min
 
 - [x] Acompletar la funcion de editar para pasar los datos al modal.
 - [x] Mostrar los datos en el modal.
@@ -181,3 +181,10 @@
 - [x] Modificar la función de GetCompanies para que muestre el logo de la primera empresa de la tabla.
 
 ---
+
+## 28/01/2025 - 06:05pm / - 1hr
+
+![UsersTable](./Usuarios.png)
+
+- [x] Start web sketching for user page.
+- [ ] Start logic layer for user page.
