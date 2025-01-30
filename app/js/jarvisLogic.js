@@ -485,3 +485,41 @@ export async function GetEmpresasByUser(id) {
     ShowModalError("Error " + error.code, error.message);
   }
 }
+
+/* --> GetWorkers <-- */
+/* @param {String} id - User id
+ * @actions: Get all workers from the user
+ *           Show the workers in the table
+ * @return none
+ */
+export async function GetWorkers(id) {
+  // We need to await the Promise and catch the error is mandatory.
+  try {
+    // Clear table
+    $("#worker-table").empty();
+    const result = await DbWorker.GetWorkers(id);
+    // Trough the result array to show the workers
+    for (let i = 0; i < result.length; i++) {
+      // Add data to the table
+      $("#worker-table").append(
+        '<tr><th scope="row" id="name">' +
+          result[i].get("nombreWorker") +
+          '</th><td id="clave">' +
+          result[i].get("claveWorker") +
+          '</td><td id="empresa">' +
+          result[i].get("empresaWorker") +
+          '</td><td id="objId" class="ocultar">' +
+          result[i].id +
+          '</td><td id="idempresaWorker" class="ocultar">' +
+          result[i].get("idEmpresa") +
+          '</td><td><button class="btn btn-editar" id="edit-btn">' +
+          "Editar" +
+          '</button></td><td><button class="btn btn-danger" id="del-btn">' +
+          "Borrar" +
+          "</button></td></tr>"
+      );
+    }
+  } catch (error) {
+    ShowModalError("Error " + error.code, error.message);
+  }
+}

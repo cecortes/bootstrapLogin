@@ -192,6 +192,13 @@
 - [x] Create a function to fill the combo box with existing companies.
 - [x] Create a function to add a new user.
 - [x] Create a worker class.
-- [ ] Fill table with users.
+
+---
+
+## 29/01/2025 - 10:00pm / - 23min
+
+- [x] Create Logic Layer for fill the table with users.
+- [x] Create the function to get data from database.
+- [x] Fill table with users.
 
 ---

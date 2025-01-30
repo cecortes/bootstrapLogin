@@ -61,6 +61,8 @@ $(function () {
   // When document is loaded
   try {
     OpenSession();
+    // Get all workers
+    Jarvis.GetWorkers(session.token);
   } catch (error) {
     console.error(error);
   }
@@ -103,6 +105,9 @@ $(function () {
         CleanAddUserModal();
       }
     }
+
+    // Get all workers
+    await Jarvis.GetWorkers(session.token);
   });
 
   // Remove error class on input focus

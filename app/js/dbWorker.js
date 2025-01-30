@@ -35,3 +35,31 @@ export async function Save(worker) {
     );
   });
 }
+
+export async function GetWorkers(token) {
+  // Worker
+  let Worker = Parse.Object.extend("Worker");
+  let query = new Parse.Query(Worker);
+
+  // New Promise
+  return new Promise((resolve, reject) => {
+    // Find all workers with the user token
+    query.equalTo("userId", token);
+
+    // Sort by createdAt
+    query.ascending("createdAt");
+
+    // Execute the query
+    query.find().then(
+      (results) => {
+        // Execute any logic that should take place after the object is saved.
+        resolve(results);
+      },
+      (error) => {
+        // Execute any logic that should take place if the save fails.
+        // error is a Parse.Error with an error code and message.
+        reject(error);
+      }
+    );
+  });
+}
