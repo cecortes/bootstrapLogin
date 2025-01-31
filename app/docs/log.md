@@ -202,3 +202,12 @@
 - [x] Fill table with users.
 
 ---
+
+## 30/01/2025 - 07:00pm / - 1hr 35min
+
+- [x] Create the form to edit a user.
+- [x] Get needed data to fill the form.
+- [ ] Create the function to fill select input empresas with values.
+- [ ] Add the logic and db layer to edit a user.
+
+---

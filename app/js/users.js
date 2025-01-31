@@ -14,6 +14,11 @@ $(function () {
   const $selectEmpresa = $("#in_empresa");
   const $inputName = $("#in_name");
   const $inputClave = $("#in_clave");
+  const $editCompanyModal = $("#modalEditCompany");
+  const $inputEditId = $("#idEdit");
+  const $inputEditName = $("#nameEdit");
+  const $inputEditClave = $("#claveEdit");
+  const $selectEditEmpresa = $("#empresaEdit");
   /*
    ******************************************************
    */
@@ -66,6 +71,39 @@ $(function () {
   } catch (error) {
     console.error(error);
   }
+
+  /* --> Edit company button on table <-- !!!!IMPORTANT!!!! */
+  $("#worker-table").on("click", ".btn-editar", function (e) {
+    e.preventDefault();
+
+    // Get name of the company from the row where the button was clicked
+    const name = $(this).closest("tr").find("th:eq(0)").text();
+    const clave = $(this).closest("tr").find("td:eq(0)").text();
+    const empresa = $(this).closest("tr").find("td:eq(1)").text();
+    const idEmpresa = $(this).closest("tr").find("td:eq(2)").text();
+    const idWorker = $(this).closest("tr").find("td:eq(3)").text();
+    const token = $(this).closest("tr").find("td:eq(4)").text();
+
+    // Create worker object and set values
+    const workerEdit = new Jarvis.Worker(
+      token,
+      name,
+      clave,
+      idWorker,
+      empresa,
+      idEmpresa
+    );
+
+    // Pass company object to modal
+    $inputEditId.val(workerEdit.idworker); // object id
+    $inputEditName.val(workerEdit.name);
+    $inputEditClave.val(workerEdit.clave);
+    //$selectEditEmpresa.val(workerEdit.empresa); // <-- Set selected option
+    console.log(workerEdit.empresa);
+
+    // Show modal
+    $editCompanyModal.modal("show");
+  });
 
   $addUserBtn.on("click", async () => {
     // Get Companies by User

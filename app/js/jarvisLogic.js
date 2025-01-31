@@ -509,9 +509,11 @@ export async function GetWorkers(id) {
           '</td><td id="empresa">' +
           result[i].get("empresaWorker") +
           '</td><td id="objId" class="ocultar">' +
+          result[i].get("idempresaWorker") +
+          '</td><td id="workId" class="ocultar">' +
           result[i].id +
-          '</td><td id="idempresaWorker" class="ocultar">' +
-          result[i].get("idEmpresa") +
+          '</td><td id="token" class="ocultar">' +
+          result[i].get("userId") +
           '</td><td><button class="btn btn-editar" id="edit-btn">' +
           "Editar" +
           '</button></td><td><button class="btn btn-danger" id="del-btn">' +
