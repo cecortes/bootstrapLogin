@@ -101,3 +101,35 @@ export async function Update(worker) {
     );
   });
 }
+
+export async function DeleteWorkerById(id) {
+  // Worker
+  let Worker = Parse.Object.extend("Worker");
+  let query = new Parse.Query(Worker);
+
+  // New Promise
+  return new Promise((resolve, reject) => {
+    // Find Worker
+    query.get(id).then(
+      (result) => {
+        // The object was retrieved successfully.
+        result.destroy().then(
+          (result) => {
+            // The object was deleted from the Parse Cloud.
+            resolve(result);
+          },
+          (error) => {
+            // Execute any logic that should take place if the save fails.
+            // error is a Parse.Error with an error code and message.
+            reject(error);
+          }
+        );
+      },
+      (error) => {
+        // Execute any logic that should take place if the save fails.
+        // error is a Parse.Error with an error code and message.
+        reject(error);
+      }
+    );
+  });
+}

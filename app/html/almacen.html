@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap Dashboard</title>
+  <!-- LineIcons -->
+  <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../css/mainStyles.css">
+  <!-- jQuery -->
+  <script src="../js/jquery.min.js"></script>
+  <!-- JS -->
+  <script type="module" src="../js/warehouse.js"></script>
+  <script type="module" src="../js/sidebar.js"></script>
+  <!-- Back4App -->
+  <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+</head>
+<body data-bs-theme="dark">
+  
+  <!-- Main Content -->
+  <main class="wrapper">
+
+    <!-- SideBar -->
+    <aside id="sidebar">
+
+      <!-- Hamburger Button Container -->
+      <div class="d-flex">
+        
+        <!-- Hamburger Button -->
+        <button id="toggle-btn" type="button">
+          <!-- Grid Icon -->
+          <i class="lni lni-dashboard-square-1"></i>
+        </button>
+
+        <!-- Logo -->
+        <div class="sidebar-logo">
+          <!-- Logo Text -->
+          <a href="#" id="main-link">Almazen</a>
+        </div>
+
+      </div>
+
+      <!-- Menu List -->
+      <ul class="sidebar-nav">
+
+        <!-- Menu Item Dashboard -->
+        <li class="sidebar-item">
+          <!-- Link -->
+          <a href="#" class="sidebar-link" id="dash-link">
+            <!-- Monitor -->
+            <i class="lni lni-monitor"></i>
+            <!-- Text -->
+            <span>Dashboard</span>
+          </a>
+        </li>
+
+        <!-- Menu Item Productos -->
+        <li class="sidebar-item">
+          <!-- Link -->
+          <a href="#" class="sidebar-link" id="productos-link">
+            <!-- Car Shop -->
+            <i class="lni lni-cart-1"></i>
+            <!-- Text -->
+            <span>Productos</span>
+          </a>
+        </li>
+
+        <!-- Menu Item Entradas / Salidas -->
+        <li class="sidebar-item">
+          <!-- Link -->
+          <a href="#" class="sidebar-link" id="movements-link">
+            <!-- Circle -->
+            <i class="lni lni-refresh-circle-1-clockwise"></i>
+            <!-- Text -->
+            <span>Entradas / Salidas</span>
+          </a>
+        </li>
+
+        <!-- Menu Item Reportes -->
+        <li class="sidebar-item">
+          <!-- Link -->
+          <a href="#" class="sidebar-link" id="report-link">
+            <!-- Report -->
+            <i class="lni lni-file-multiple"></i>
+            <!-- Text -->
+            <span>Reportes</span>
+          </a>
+        </li>
+
+        <!-- Menu Item Collapsible Setup -->
+        <li class="sidebar-item">
+          <!-- Link -->
+          <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#setup" aria-expanded="false" aria-controls="setup">
+            <!-- Setup -->
+            <i class="lni lni-gear-1"></i>
+            <!-- Text -->
+            <span>Configuración</span>
+          </a>
+
+          <!-- SubMenu -->
+          <ul id="setup" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+
+            <!-- Empresa -->
+            <li class="sidebar-item">
+
+              <a href="#" class="sidebar-link" id="empresa-link">Empresa</a>
+
+            </li>
+
+            <!-- Usuarios -->
+            <li class="sidebar-item">
+
+              <a href="#" class="sidebar-link" id="usuarios-link">Usuarios</a>
+
+            </li>
+
+            <!-- Almacén -->
+            <li class="sidebar-item">
+
+              <a href="#" class="sidebar-link" id="almacen-link">Almacén</a>
+
+            </li>
+
+          </ul>
+
+        </li>
+
+      </ul>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+
+        <!-- Logout -->
+        <a href="#" class="sidebar-link" id="logout-link">
+          <!-- Logout Icon -->
+          <i class="lni lni-exit"></i>
+
+          <!-- Logout Text -->
+          <span>Cerrar Sesión</span>
+        </a>
+
+      </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main p-3">
+
+      <!-- Title -->
+      <div class="container-lg text-center">
+        
+        <!-- Title -->
+        <h1 class="text-center display-4 text-texto mt-3">Alamacén</h1>
+
+      </div>
+
+      <!-- Content Container -->
+      <div class="container-lg text-center mt-5 mb-5 table-responsive">
+
+        <!-- Data Table -->
+        <table class="table table-dark table-hover table-bordered border-texto align-middle tabla">
+          
+          <!-- Table Head -->
+          <thead>
+            <!-- Table Row -->
+            <tr class="table-header">
+              <!-- Table Header -->
+              <th scope="col">ObjectId</th>
+              <!-- Table Header -->
+              <th scope="col">UserId</th>
+              <!-- Table Header -->
+              <th scope="col">Empresa Asignada</th>
+              <!-- Table Header -->
+              <th scope="col" class="">Empresa Id</th>
+              <!-- Table Header -->
+              <th scope="col" class="">Almacén</th>
+              <!-- Table Header -->
+              <th scope="col" class="">Tipo</th>
+              <!-- Table Header -->
+              <th scope="col" class="">Dirección</th>
+              <!-- Table Header -->
+              <th scope="col"></th>
+              <!-- Table Header -->
+              <th scope="col"></th>
+            </tr>
+          </thead>
+
+          <!-- Table Body -->
+          <tbody class="table-group-divider" id="worker-table">
+
+            <!-- Table Row --
+            <tr>
+              <!-- Table Data --
+              <th scope="row" id="name">ObjectId</th>
+              <!-- Table Data --
+              <td id="idUser" class="ocultar">UserId</td>
+              <!-- Table Data --
+              <td id="empresa">Café Rentoy</td>
+              <!-- Table Data --
+              <td id="idEmpresa" class="ocultar">09090909090</td>
+              <!-- Table Data --
+              <td>
+                <!-- Edit Button --
+                <button class="btn btn-editar" id="edit-btn">Editar</button>
+              </td>
+              <td>
+                <!-- Delete Button --
+                <button class="btn btn-danger" id="del-btn">Borrar</button>
+              </td>
+            </tr -->
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <!-- Action Container -->
+      <div class="container-sm text-center text-pink-300 mt-5">
+
+        <!-- Action Button -->
+        <button class="btn btn-success" id="add-btn">Agregar Alamacén</button>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Modal Add Form Container -->
+  <div id="modalAddWareHouse" class="modal fade" tabindex="-1">
+
+    <!-- Modal Dialog -->
+    <div class="modal-dialog-centered modal-dialog modal-lg">
+
+      <!-- Modal Content -->
+      <div class="modal-content glassmorph2">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+
+          <!-- Modal Title -->
+          <h4 class="modal-title ps-4 text-texto">Agregar Almacén</h4>
+
+          <!-- Close Button -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+
+          <!-- Form -->
+          <form id="warehouse-form">
+
+            <!-- Form Empresa Select-->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="in_empresa" class="form-label text-label">Empresa</label>
+
+              <!-- Select Input -->
+              <select class="form-select text-texto inputcustom" id="in_empresa" name="empresa" required>
+                <!-- Option --
+                <option value="Cafe Rentoy">Cafe Rentoy</option>
+                <!-- Option --
+                <option value="Profetica">Profetica</option -->
+              </select>
+
+            </div>
+
+            <!-- Form Group Name -->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="name" class="form-label text-label">Nombre Almacén</label>
+
+              <!-- Input -->
+              <input type="text" class="form-control text-texto inputcustom" id="in_name" name="name" required>
+
+            </div>
+
+            <!-- Form Tipo Select-->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="in_tipo" class="form-label text-label">Tipo</label>
+
+              <!-- Select Input -->
+              <select class="form-select text-texto inputcustom" id="in_tipo" name="tipo" required>
+                <!-- Option -->
+                <option value="General">General</option>
+                <!-- Option -->
+                <option value="Bebidas">Bebidas</option>
+                <!-- Option -->
+                <option value="Alimentos">Alimentos</option>
+                <!-- Option -->
+                <option value="Consumibles">Consumibles</option>
+              </select>
+
+            </div>
+
+            <!-- Form Group Dirección -->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="in_addr" class="form-label text-label">Dirección</label>
+
+              <!-- Input -->
+              <input type="text" class="form-control text-texto inputcustom" id="in_addr" name="address" required>
+
+            </div>
+
+          </form>
+
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer d-flex justify-content-around">
+
+          <!-- Close Button -->
+          <button type="button" class="btn btn-rojo" data-bs-dismiss="modal">Cerrar</button>
+
+          <!-- Clean Fields Button -->
+          <button type="button" class="btn btn-clear" id="clean-btn">Limpiar</button>
+
+          <!-- Save Button -->
+          <button type="button" class="btn btn-save" id="save-btn">Guardar</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="../js/bootstrap.bundle.js"></script>
+</body>
+</html>

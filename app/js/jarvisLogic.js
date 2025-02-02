@@ -584,3 +584,21 @@ export async function GetWorkers(id) {
     ShowModalError("Error " + error.code, error.message);
   }
 }
+
+/* --> DeleteWorker <-- */
+/* @param {String} id - Worker id
+ * @actions: Delete worker from the user
+ *           Show the workers in the table
+ * @return none
+ */
+export async function DeleteWorker(id) {
+  // We need to await the Promise and catch the error is mandatory.
+  try {
+    const result = await DbWorker.DeleteWorkerById(id);
+    ShowModalOk("Eliminar Usuario:", "Usuario eliminado con éxito");
+    return true;
+  } catch (error) {
+    ShowModalError("Error " + error.code, error.message);
+    return false;
+  }
+}

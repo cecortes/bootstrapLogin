@@ -214,6 +214,12 @@
 
 - [x] Create the function to fill select input empresas with values.
 - [x] Add the logic and db layer to edit a user.
-- [ ] Add the logic and db layer to delete a user.
 
 ---
+
+## 02/02/2025 - 08:50pm / - 1hr
+
+- [x] Add the logic and db layer to delete a user.
+- [x] Start web sketching for almacen page.
+- [x] Start logic layer for almacen page.
+- [ ] Finish the logic layer for add a new almacen.

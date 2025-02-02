@@ -110,6 +110,20 @@ $(function () {
     $editCompanyModal.modal("show");
   });
 
+  /*  --> Delete company button on table <-- !!!!IMPORTANT!!!! */
+  $("#worker-table").on("click", ".btn-danger", async function (e) {
+    e.preventDefault();
+
+    // Get name of the worker from the row where the button was clicked
+    const id = $(this).closest("tr").find("td:eq(3)").text();
+
+    // Delete worker
+    if (await Jarvis.DeleteWorker(id)) {
+      // Get all workers
+      await Jarvis.GetWorkers(session.token);
+    }
+  });
+
   $addUserBtn.on("click", async () => {
     // Get Companies by User
     await Jarvis.GetEmpresasByUser(session.token, $selectEmpresa);
@@ -139,7 +153,6 @@ $(function () {
 
     // Check if worker is valid
     if (worker.validation) {
-      console.log(worker);
       // Save Worker
       if (await worker.SaveWorker(worker)) {
         // Clean modal
