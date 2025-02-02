@@ -63,3 +63,41 @@ export async function GetWorkers(token) {
     );
   });
 }
+
+export async function Update(worker) {
+  // Worker
+  let Worker = Parse.Object.extend("Worker");
+  let query = new Parse.Query(Worker);
+
+  // New Promise
+  return new Promise((resolve, reject) => {
+    // Find Worker
+    query.get(worker.idworker).then(
+      (object) => {
+        // Update Worker
+        object.set("nombreWorker", worker.name);
+        object.set("claveWorker", worker.clave);
+        object.set("empresaWorker", worker.empresa);
+        object.set("idempresaWorker", worker.idempresa);
+
+        // Save Worker
+        object.save().then(
+          (result) => {
+            // Execute any logic that should take place after the object is saved.
+            resolve(result);
+          },
+          (error) => {
+            // Execute any logic that should take place if the save fails.
+            // error is a Parse.Error with an error code and message.
+            reject(error);
+          }
+        );
+      },
+      (error) => {
+        // Execute any logic that should take place if the save fails.
+        // error is a Parse.Error with an error code and message.
+        reject(error);
+      }
+    );
+  });
+}

@@ -33,6 +33,18 @@ import * as DbWorker from "./dbWorker.js";
  * @param {Boolean} validation
  * @method Validate
  * @method async SaveEmpresa
+ *
+ * Class Worker
+ * @param {String} iduser
+ * @param {String} name
+ * @param {String} clave
+ * @param {String} idworker
+ * @param {String} empresa
+ * @param {String} idempresa
+ * @param {Boolean} validation
+ * @method Validate
+ * @method ValidateEdit
+ * @method async SaveWorker
  */
 
 export class Session {
@@ -294,12 +306,58 @@ export class Worker {
     }
   }
 
+  ValidateEdit() {
+    // Check if inputs are empty
+    if (this.name === "" && this.clave === "") {
+      this.validation = false;
+      // Add error class to inputs
+      $("#nameEdit").addClass("input-alert");
+      $("#claveEdit").addClass("input-alert");
+      // Add error message
+      $("#nameEdit").val("Por favor, complete los campos");
+      $("#claveEdit").val("Por favor, complete los campos");
+    } else if (
+      this.name === "" ||
+      this.name === "Por favor, complete los campos"
+    ) {
+      this.validation = false;
+      // Add error class to input
+      $("#nameEdit").addClass("input-alert");
+      // Add error message
+      $("#nameEdit").val("Por favor, complete los campos");
+    } else if (
+      this.clave === "" ||
+      this.clave === "Por favor, complete los campos"
+    ) {
+      this.validation = false;
+      // Add error class to input
+      $("#claveEdit").addClass("input-alert");
+      // Add error message
+      $("#claveEdit").val("Por favor, complete los campos");
+    } else {
+      this.validation = true;
+    }
+  }
+
   // Save to database
   async SaveWorker(worker) {
     // We need to await the Promise and catch the error is mandatory.
     try {
       const result = await DbWorker.Save(worker);
       ShowModalOk("Agregar Usuario:", "Usuario registrado con éxito");
+      return true;
+    } catch (error) {
+      ShowModalError("Error " + error.code, error.message);
+      return false;
+    }
+  }
+
+  // Update to database
+  async UpdateWorker(worker) {
+    // We need to await the Promise and catch the error is mandatory.
+    try {
+      const result = await DbWorker.Update(worker);
+      ShowModalOk("Editar Usuario:", "Usuario editado con éxito");
       return true;
     } catch (error) {
       ShowModalError("Error " + error.code, error.message);
@@ -462,18 +520,19 @@ export async function EditEmpresa(empresa) {
 
 /* --> GetEmpresasByUser <-- */
 /* @param {String} id - User id
+ * @param {String} select - Select id
  * @actions: Get all companies from the user
  *           Fill the select with the companies
  * @return none
  */
-export async function GetEmpresasByUser(id) {
+export async function GetEmpresasByUser(id, select) {
   // We need to await the Promise and catch the error is mandatory.
   try {
     const result = await DbCompany.GetCompanies(id);
     // Trough the result array to show the companies
     for (let i = 0; i < result.length; i++) {
       // Add data to the select
-      $("#in_empresa").append(
+      $(select).append(
         '<option value="' +
           result[i].id +
           '">' +

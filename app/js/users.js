@@ -11,6 +11,7 @@ $(function () {
   const $addUserBtn = $("#add-btn");
   const $cleanBtn = $("#clean-btn");
   const $saveBtn = $("#save-btn");
+  const $editBtn = $("#edit-btn");
   const $selectEmpresa = $("#in_empresa");
   const $inputName = $("#in_name");
   const $inputClave = $("#in_clave");
@@ -73,8 +74,12 @@ $(function () {
   }
 
   /* --> Edit company button on table <-- !!!!IMPORTANT!!!! */
-  $("#worker-table").on("click", ".btn-editar", function (e) {
+  $("#worker-table").on("click", ".btn-editar", async function (e) {
     e.preventDefault();
+
+    // Fill select with companies
+    $selectEditEmpresa.empty();
+    await Jarvis.GetEmpresasByUser(session.token, $selectEditEmpresa);
 
     // Get name of the company from the row where the button was clicked
     const name = $(this).closest("tr").find("th:eq(0)").text();
@@ -98,8 +103,8 @@ $(function () {
     $inputEditId.val(workerEdit.idworker); // object id
     $inputEditName.val(workerEdit.name);
     $inputEditClave.val(workerEdit.clave);
-    //$selectEditEmpresa.val(workerEdit.empresa); // <-- Set selected option
-    console.log(workerEdit.empresa);
+    //$("#empresaEdit option:selected").text(workerEdit.empresa); // Selected option
+    $selectEditEmpresa.val(workerEdit.idempresa); // Selected value
 
     // Show modal
     $editCompanyModal.modal("show");
@@ -107,7 +112,7 @@ $(function () {
 
   $addUserBtn.on("click", async () => {
     // Get Companies by User
-    await Jarvis.GetEmpresasByUser(session.token);
+    await Jarvis.GetEmpresasByUser(session.token, $selectEmpresa);
     $addUserModal.modal("show");
   });
 
@@ -148,6 +153,37 @@ $(function () {
     await Jarvis.GetWorkers(session.token);
   });
 
+  $editBtn.on("click", async (e) => {
+    e.preventDefault();
+
+    // New Worker object fill with form data
+    const worker = new Jarvis.Worker(
+      session.token,
+      $inputEditName.val(),
+      $inputEditClave.val(),
+      $inputEditId.val(),
+      $("#empresaEdit option:selected").text(),
+      $selectEditEmpresa.val()
+    );
+
+    // Validate Worker
+    worker.ValidateEdit();
+
+    // Check if worker is valid
+    if (worker.validation) {
+      // Save Worker
+      if (await worker.UpdateWorker(worker)) {
+        // Clean modal
+        $editCompanyModal.modal("hide");
+      } else {
+        $editCompanyModal.modal("hide");
+      }
+    }
+
+    // Get all workers
+    await Jarvis.GetWorkers(session.token);
+  });
+
   // Remove error class on input focus
   $inputName.focus(function () {
     // Check if input has error class
@@ -166,6 +202,26 @@ $(function () {
       $inputClave.removeClass("input-alert");
       // Clear input value
       $inputClave.val("");
+    }
+  });
+
+  $inputEditName.focus(function () {
+    // Check if input has error class
+    if ($inputEditName.hasClass("input-alert")) {
+      // Remove error class
+      $inputEditName.removeClass("input-alert");
+      // Clear input value
+      $inputEditName.val("");
+    }
+  });
+
+  $inputEditClave.focus(function () {
+    // Check if input has error class
+    if ($inputEditClave.hasClass("input-alert")) {
+      // Remove error class
+      $inputEditClave.removeClass("input-alert");
+      // Clear input value
+      $inputEditClave.val("");
     }
   });
   /*

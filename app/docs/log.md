@@ -207,7 +207,13 @@
 
 - [x] Create the form to edit a user.
 - [x] Get needed data to fill the form.
-- [ ] Create the function to fill select input empresas with values.
-- [ ] Add the logic and db layer to edit a user.
+
+---
+
+## 01/02/2025 - 10:15pm / - 1hr 25min
+
+- [x] Create the function to fill select input empresas with values.
+- [x] Add the logic and db layer to edit a user.
+- [ ] Add the logic and db layer to delete a user.
 
 ---
