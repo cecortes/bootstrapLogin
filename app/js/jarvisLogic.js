@@ -3,6 +3,7 @@
 import * as DbLogin from "./dbLogin.js";
 import * as DbCompany from "./dbCompany.js";
 import * as DbWorker from "./dbWorker.js";
+import * as DbWarehouse from "./dbWarehouse.js";
 
 /*
  * Global Variables
@@ -45,6 +46,17 @@ import * as DbWorker from "./dbWorker.js";
  * @method Validate
  * @method ValidateEdit
  * @method async SaveWorker
+ *
+ * Class Warehouse
+ * @param {String} userid
+ * @param {String} empresa
+ * @param {String} idempresa
+ * @param {String} name
+ * @param {String} tipo
+ * @param {String} address
+ * @param {Boolean} validation
+ * @method Validate
+ * @method async SaveWarehouse
  */
 
 export class Session {
@@ -366,6 +378,71 @@ export class Worker {
   }
 }
 
+export class Warehouse {
+  // Constructor
+  constructor(userid, empresa, idempresa, name, tipo, address) {
+    this.userid = userid;
+    this.empresa = empresa;
+    this.idempresa = idempresa;
+    this.name = name;
+    this.tipo = tipo;
+    this.address = address;
+    this.validation = false;
+  }
+
+  // Validate warehouse
+  Validate() {
+    // Check if inputs are empty
+    if (this.name === "" && this.address === "") {
+      this.validation = false;
+      // Add error class to inputs
+      $("#in_name").addClass("input-alert");
+      $("#in_address").addClass("input-alert");
+      // Add error message
+      $("#in_name").val("Por favor, complete los campos");
+      $("#in_addr").val("Por favor, complete los campos");
+    } else if (
+      this.name === "" ||
+      this.name === "Por favor, complete los campos"
+    ) {
+      this.validation = false;
+      // Add error class to input
+      $("#in_name").addClass("input-alert");
+      // Add error message
+      $("#in_name").val("Por favor, complete los campos");
+    } else if (
+      this.address === "" ||
+      this.address === "Por favor, complete los campos"
+    ) {
+      this.validation = false;
+      // Add error class to input
+      $("#in_addr").addClass("input-alert");
+      // Add error message
+      $("#in_addr").val("Por favor, complete los campos");
+    } else {
+      this.validation = true;
+    }
+
+    // Check if company is empty
+    if (this.company === "") {
+      this.validation = false;
+    }
+  }
+
+  // Save to database
+  async SaveWarehouse(warehouse) {
+    // We need to await the Promise and catch the error is mandatory.
+    try {
+      const result = await DbWarehouse.Save(warehouse);
+      ShowModalOk("Agregar Almacén:", "Almacén registrado con éxito");
+      return true;
+    } catch (error) {
+      ShowModalError("Error " + error.code, error.message);
+      return false;
+    }
+  }
+}
+
 /* --> Routing <-- */
 /* @param {String} Name of the route, same as sidebar links
  * @actions: Check if user is logged.
@@ -600,5 +677,47 @@ export async function DeleteWorker(id) {
   } catch (error) {
     ShowModalError("Error " + error.code, error.message);
     return false;
+  }
+}
+
+/* --> GetWarehouses <-- */
+/* @param {String} id - User id
+ * @actions: Get all warehouses from the user
+ *           Show the warehouses in the table
+ * @return none
+ */
+export async function GetWarehouses(id) {
+  // We need to await the Promise and catch the error is mandatory.
+  try {
+    // Clear table
+    $("#warehouse-table").empty();
+    const result = await DbWarehouse.GetWarehouse(id);
+    // Trough the result array to show the warehouses
+    for (let i = 0; i < result.length; i++) {
+      // Add data to the table
+      $("#warehouse-table").append(
+        '<tr><td id="wareId" class="ocultar">' +
+          result[i].id +
+          '</td><td id="token" class="ocultar">' +
+          result[i].get("userId") +
+          '</td><td id="empresa">' +
+          result[i].get("nombreEmpresa") +
+          '</td><td id="idempresa" class="ocultar">' +
+          result[i].get("idEmpresa") +
+          '</td><th scope="row" id="name">' +
+          result[i].get("nombreWarehouse") +
+          '</th><td id="tipo">' +
+          result[i].get("catWareHouse") +
+          '</td><td id="address">' +
+          result[i].get("addrWarehouse") +
+          '</td><td><button class="btn btn-editar" id="edit-btn">' +
+          "Editar" +
+          '</button></td><td><button class="btn btn-danger" id="del-btn">' +
+          "Borrar" +
+          "</button></td></tr>"
+      );
+    }
+  } catch (error) {
+    ShowModalError("Error " + error.code, error.message);
   }
 }

@@ -222,4 +222,14 @@
 - [x] Add the logic and db layer to delete a user.
 - [x] Start web sketching for almacen page.
 - [x] Start logic layer for almacen page.
-- [ ] Finish the logic layer for add a new almacen.
+
+---
+
+## 03/02/2025 - 09:00am / - 1hr
+
+- [x] Finish the logic layer for add a new almacen.
+- [ ] Create modal to edit a almacen.
+- [ ] Create logic layer to edit a almacen.
+- [ ] Create db layer to edit a almacen.
+
+---
