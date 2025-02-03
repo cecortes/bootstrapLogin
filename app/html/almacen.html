@@ -336,6 +336,179 @@
 
   </div>
 
+  <!-- Modal Edit Form Container -->
+  <div id="modalEditWarehouse" class="modal fade" tabindex="-1">
+
+    <!-- Modal Dialog -->
+    <div class="modal-dialog-centered modal-dialog modal-lg">
+
+      <!-- Modal Content -->
+      <div class="modal-content glassmorph2">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+
+          <!-- Modal Title -->
+          <h4 class="modal-title ps-4 text-texto">Editar Almacén</h4>
+
+          <!-- Close Button -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+
+          <!-- Form -->
+          <form id="warehouse-form-edit">
+
+            <!-- Form Empresa Select-->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="edit_empresa" class="form-label text-label">Empresa</label>
+
+              <!-- Select Input -->
+              <select class="form-select text-texto inputcustom" id="edit_empresa" name="empresa" required>
+                <!-- Option --
+                <option value="Cafe Rentoy">Cafe Rentoy</option>
+                <!-- Option --
+                <option value="Profetica">Profetica</option -->
+              </select>
+
+            </div>
+
+            <!-- Form Group Name -->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="edit_name" class="form-label text-label">Nombre Almacén</label>
+
+              <!-- Input -->
+              <input type="text" class="form-control text-texto inputcustom" id="edit_name" name="name" required>
+
+            </div>
+
+            <!-- Form Tipo Select-->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="edit_tipo" class="form-label text-label">Tipo</label>
+
+              <!-- Select Input -->
+              <select class="form-select text-texto inputcustom" id="edit_tipo" name="tipo" required>
+                <!-- Option -->
+                <option value="General">General</option>
+                <!-- Option -->
+                <option value="Bebidas">Bebidas</option>
+                <!-- Option -->
+                <option value="Alimentos">Alimentos</option>
+                <!-- Option -->
+                <option value="Consumibles">Consumibles</option>
+              </select>
+
+            </div>
+
+            <!-- Form Group Dirección -->
+            <div class="mb-3">
+
+              <!-- Label -->
+              <label for="edit_addr" class="form-label text-label">Dirección</label>
+
+              <!-- Input -->
+              <input type="text" class="form-control text-texto inputcustom" id="edit_addr" name="address" required>
+
+            </div>
+
+          </form>
+
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer d-flex justify-content-around">
+
+          <!-- Close Button -->
+          <button type="button" class="btn btn-rojo" data-bs-dismiss="modal">Cerrar</button>
+
+          <!-- Edit Button -->
+          <button type="button" class="btn btn-edit" id="edit-btn">Editar</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Modal Error -->
+  <div class="modal fade" id="modalError" tabindex="-1" role="dialog" aria-labelledby="modalError" aria-hidden="true">
+
+      <!-- Modal size & type -->
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+
+        <!-- Modal Content -->
+        <div class="modal-content glassmorph" id="modal-style">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h5 id="modal-title" style="letter-spacing: 2px;"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            </button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="modal-body">
+            <div class="py-3 text-center text-white">
+              <p class="text-gradiente mt-2" id="modal-text" style="letter-spacing: 2px; font-size: 1.1rem;"></p>
+            </div>          
+          </div>
+
+          <!-- Modal Footer -->
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn redGradient" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+
+        </div>
+
+      </div>
+
+  </div>
+
+  <!-- Modal Success -->
+  <div class="modal fade" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="modalSuccess" aria-hidden="true">
+
+      <!-- Modal size & type -->
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+
+        <!-- Modal Content -->
+        <div class="modal-content glassmorph2" id="modal-style">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h5 id="modal-titleOk" style="letter-spacing: 2px;"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            </button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="modal-body">
+            <div class="py-3 text-center text-white">
+              <p class="text-gradiente mt-2" id="modal-textOk" style="letter-spacing: 2px; font-size: 1.1rem;"></p>
+            </div>          
+          </div>
+
+          <!-- Modal Footer -->
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn greenGradient" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+
+        </div>
+
+      </div>
+
+  </div>
+
   <!-- Bootstrap JS -->
   <script src="../js/bootstrap.bundle.js"></script>
 </body>

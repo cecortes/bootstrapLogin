@@ -429,6 +429,39 @@ export class Warehouse {
     }
   }
 
+  ValidateEdit() {
+    // Check if inputs are empty
+    if (this.name === "" && this.address === "") {
+      this.validation = false;
+      // Add error class to inputs
+      $("#edit_name").addClass("input-alert");
+      $("#edit_addr").addClass("input-alert");
+      // Add error message
+      $("#edit_name").val("Por favor, complete los campos");
+      $("#edit_addr").val("Por favor, complete los campos");
+    } else if (
+      this.name === "" ||
+      this.name === "Por favor, complete los campos"
+    ) {
+      this.validation = false;
+      // Add error class to input
+      $("#edit_name").addClass("input-alert");
+      // Add error message
+      $("#edit_name").val("Por favor, complete los campos");
+    } else if (
+      this.address === "" ||
+      this.address === "Por favor, complete los campos"
+    ) {
+      this.validation = false;
+      // Add error class to input
+      $("#edit_addr").addClass("input-alert");
+      // Add error message
+      $("#edit_addr").val("Por favor, complete los campos");
+    } else {
+      this.validation = true;
+    }
+  }
+
   // Save to database
   async SaveWarehouse(warehouse) {
     // We need to await the Promise and catch the error is mandatory.
@@ -704,7 +737,7 @@ export async function GetWarehouses(id) {
           result[i].get("nombreEmpresa") +
           '</td><td id="idempresa" class="ocultar">' +
           result[i].get("idEmpresa") +
-          '</td><th scope="row" id="name">' +
+          '</td><th scope="row" id="name" class="text-warning">' +
           result[i].get("nombreWarehouse") +
           '</th><td id="tipo">' +
           result[i].get("catWareHouse") +

@@ -15,6 +15,12 @@ $(function () {
   const $selecTipoAdd = $("#in_tipo");
   const $inputAddr = $("#in_addr");
   const $saveBtn = $("#save-btn");
+  const $editWarehouseModal = $("#modalEditWarehouse");
+  const $editBtn = $("#edit-btn");
+  const $selectEditEmpresa = $("#edit_empresa");
+  const $inputEditName = $("#edit_name");
+  const $selectEditTipo = $("#edit_tipo");
+  const $inputEditAddr = $("#edit_addr");
   /*
    ******************************************************
    */
@@ -64,6 +70,45 @@ $(function () {
     console.error(error);
   }
 
+  /* --> Edit warehouse button on table <-- !!!!IMPORTANT!!!! */
+  $("#warehouse-table").on("click", ".btn-editar", async function (e) {
+    e.preventDefault();
+
+    // Fill select with warehouses
+    $selectEditEmpresa.empty();
+    await Jarvis.GetEmpresasByUser(session.token, $selectEditEmpresa);
+    $editWarehouseModal.modal("show");
+
+    // Get data of the warehouse from the row where the button was clicked
+    const objetid = $(this).closest("tr").find("td:eq(0)").text();
+    const userid = $(this).closest("tr").find("td:eq(1)").text();
+    const empresa = $(this).closest("tr").find("td:eq(2)").text();
+    const idempresa = $(this).closest("tr").find("td:eq(3)").text();
+    const name = $(this).closest("tr").find("th:eq(0)").text();
+    const tipo = $(this).closest("tr").find("td:eq(4)").text();
+    const addr = $(this).closest("tr").find("td:eq(5)").text();
+
+    // Create warehouse object and set values
+    const warehouseEdit = new Jarvis.Warehouse(
+      userid,
+      empresa,
+      idempresa,
+      name,
+      tipo,
+      addr
+    );
+
+    // Pass warehouse object to modal
+    $("#edit_empresa option:selected").text(warehouseEdit.empresa); // Selected option
+    $inputEditName.val(warehouseEdit.name);
+    $inputEditAddr.val(warehouseEdit.address);
+    $selectEditTipo.val(warehouseEdit.tipo); // Selected value
+    //$selectEditEmpresa.val(warehouseEdit.idempresa); // Selected value
+
+    // Show modal
+    $editWarehouseModal.modal("show");
+  });
+
   $addWarehouseBtn.on("click", async () => {
     // Get Companies by User
     await Jarvis.GetEmpresasByUser(session.token, $selectEmpresaAdd);
@@ -104,6 +149,78 @@ $(function () {
 
     // Get all warehouses
     await Jarvis.GetWarehouses(session.token);
+  });
+
+  $editBtn.on("click", async (e) => {
+    e.preventDefault();
+
+    // New Warehouse object fill with form data
+    const warehouse = new Jarvis.Warehouse(
+      session.token,
+      $("#edit_empresa option:selected").text(),
+      $selectEditEmpresa.val(),
+      $inputEditName.val(),
+      $("#edit_tipo option:selected").text(),
+      $inputEditAddr.val()
+    );
+
+    // Validate Warehouse
+    warehouse.ValidateEdit();
+
+    // Save Warehouse
+    if (warehouse.validation) {
+      try {
+        if (await warehouse.UpdateWarehouse(warehouse)) {
+          CleanEditWarehouseModal();
+        }
+      } catch (error) {
+        CleanEditWarehouseModal();
+      }
+    }
+
+    // Get all warehouses
+    await Jarvis.GetWarehouses(session.token);
+  });
+
+  //Remove error class on input focus
+  $inputName.on("focus", () => {
+    // Check if input has error class
+    if ($inputName.hasClass("input-alert")) {
+      // Remove error class
+      $inputName.removeClass("input-alert");
+      // Clear input value
+      $inputName.val("");
+    }
+  });
+
+  $inputAddr.on("focus", () => {
+    // Check if input has error class
+    if ($inputAddr.hasClass("input-alert")) {
+      // Remove error class
+      $inputAddr.removeClass("input-alert");
+      // Clear input value
+      $inputAddr.val("");
+    }
+  });
+
+  $inputEditName.on("focus", () => {
+    // Check if input has error class
+    if ($inputEditName.hasClass("input-alert")) {
+      // Remove error class
+      $inputEditName.removeClass("input-alert");
+      // Clear input value
+      $inputEditName.val("");
+    }
+  });
+
+  $inputEditAddr.on("focus", () => {
+    // Check if input has error class
+    if ($inputEditAddr.hasClass("input-alert")) {
+      // Remove error class
+      $inputEditAddr.removeClass("input-alert");
+      // Clear input value
+      $inputEditAddr.val("");
+    }
   });
   /*
    ******************************************************
