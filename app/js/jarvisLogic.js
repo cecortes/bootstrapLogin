@@ -380,7 +380,8 @@ export class Worker {
 
 export class Warehouse {
   // Constructor
-  constructor(userid, empresa, idempresa, name, tipo, address) {
+  constructor(id, userid, empresa, idempresa, name, tipo, address) {
+    this.id = id;
     this.userid = userid;
     this.empresa = empresa;
     this.idempresa = idempresa;
@@ -468,6 +469,19 @@ export class Warehouse {
     try {
       const result = await DbWarehouse.Save(warehouse);
       ShowModalOk("Agregar Almacén:", "Almacén registrado con éxito");
+      return true;
+    } catch (error) {
+      ShowModalError("Error " + error.code, error.message);
+      return false;
+    }
+  }
+
+  // Update to database
+  async UpdateWarehouse(warehouse) {
+    // We need to await the Promise and catch the error is mandatory.
+    try {
+      const result = await DbWarehouse.Update(warehouse);
+      ShowModalOk("Editar Almacén:", "Almacén editado con éxito");
       return true;
     } catch (error) {
       ShowModalError("Error " + error.code, error.message);
@@ -752,5 +766,23 @@ export async function GetWarehouses(id) {
     }
   } catch (error) {
     ShowModalError("Error " + error.code, error.message);
+  }
+}
+
+/* --> DeleteWarehouse <-- */
+/* @param {String} id - Warehouse id
+ * @actions: Delete warehouse from the user
+ *           Show the warehouses in the table
+ * @return none
+ */
+export async function DeleteWarehouse(id) {
+  // We need to await the Promise and catch the error is mandatory.
+  try {
+    const result = await DbWarehouse.DeleteWarehouseById(id);
+    ShowModalOk("Eliminar Almacén:", "Almacén eliminado con éxito");
+    return true;
+  } catch (error) {
+    ShowModalError("Error " + error.code, error.message);
+    return false;
   }
 }

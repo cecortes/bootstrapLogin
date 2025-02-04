@@ -64,3 +64,74 @@ export async function GetWarehouse(token) {
     );
   });
 }
+
+export async function Update(warehouse) {
+  // Warehouse
+  let Warehouse = Parse.Object.extend("Warehouses");
+  let query = new Parse.Query(Warehouse);
+
+  // New Promise
+  return new Promise((resolve, reject) => {
+    // Find warehouse by id
+    query.get(warehouse.id).then(
+      (result) => {
+        // Update warehouse
+        result.set("nombreEmpresa", warehouse.empresa);
+        result.set("idEmpresa", warehouse.idempresa);
+        result.set("nombreWarehouse", warehouse.name);
+        result.set("catWareHouse", warehouse.tipo);
+        result.set("addrWarehouse", warehouse.address);
+
+        // Save warehouse
+        result.save().then(
+          (result) => {
+            // Execute any logic that should take place after the object is saved.
+            resolve(result);
+          },
+          (error) => {
+            // Execute any logic that should take place if the save fails.
+            // error is a Parse.Error with an error code and message.
+            reject(error);
+          }
+        );
+      },
+      (error) => {
+        // Execute any logic that should take place if the save fails.
+        // error is a Parse.Error with an error code and message.
+        reject(error);
+      }
+    );
+  });
+}
+
+export async function DeleteWarehouseById(id) {
+  // Warehouse
+  let Warehouse = Parse.Object.extend("Warehouses");
+  let query = new Parse.Query(Warehouse);
+
+  // New Promise
+  return new Promise((resolve, reject) => {
+    // Find warehouse by id
+    query.get(id).then(
+      (result) => {
+        // Delete warehouse
+        result.destroy().then(
+          (result) => {
+            // The object was deleted from the Parse Cloud.
+            resolve(result);
+          },
+          (error) => {
+            // The delete failed.
+            // error is a Parse.Error with an error code and message.
+            reject(error);
+          }
+        );
+      },
+      (error) => {
+        // The delete failed.
+        // error is a Parse.Error with an error code and message.
+        reject(error);
+      }
+    );
+  });
+}

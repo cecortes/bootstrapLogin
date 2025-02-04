@@ -225,11 +225,14 @@
 
 ---
 
-## 03/02/2025 - 09:00am / - 1hr
+## 03/02/2025 - 09:00am / - 3hr
 
 - [x] Finish the logic layer for add a new almacen.
-- [ ] Create modal to edit a almacen.
-- [ ] Create logic layer to edit a almacen.
-- [ ] Create db layer to edit a almacen.
+- [x] Create modal to edit a almacen.
+- [x] Create logic layer to edit a almacen.
+- [x] Create db layer to edit a almacen.
+- [x] Create modal to delete a almacen.
+- [x] Create logic layer to delete a almacen.
+- [x] Create db layer to delete a almacen.
 
 ---
