@@ -244,5 +244,8 @@
 
 - [x] Design Productos class.
 - [x] Web sketching for productos page.
+- [x] Install Chart.js
+- [ ] Create html productos page.
+- [ ] Start web sketching for productos page.
 
 ---
