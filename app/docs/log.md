@@ -237,7 +237,7 @@
 
 ---
 
-## 04/02/2025 - 06:10pm / - 37min
+## 04/02/2025 - 06:10pm / - 1hr
 
 ![Productos](./productos.png)
 ![Productos](./ProductosPage.png)
@@ -245,7 +245,8 @@
 - [x] Design Productos class.
 - [x] Web sketching for productos page.
 - [x] Install Chart.js
-- [ ] Create html productos page.
-- [ ] Start web sketching for productos page.
+- [x] Create html productos page.
+- [x] Start web sketching for productos page.
+- [ ] Follow the step by step guide from the Chart.js documentation.
 
 ---
