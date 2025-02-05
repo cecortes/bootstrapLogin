@@ -236,3 +236,13 @@
 - [x] Create db layer to delete a almacen.
 
 ---
+
+## 04/02/2025 - 06:10pm / - 37min
+
+![Productos](./productos.png)
+![Productos](./ProductosPage.png)
+
+- [x] Design Productos class.
+- [x] Web sketching for productos page.
+
+---
