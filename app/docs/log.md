@@ -247,6 +247,13 @@
 - [x] Install Chart.js
 - [x] Create html productos page.
 - [x] Start web sketching for productos page.
+
+---
+
+## 05/02/2025 - 09:15pm / - 30min
+
+- [x] Modify the table to preserve the same style.
+- [x] Add the agregar producto button.
 - [ ] Follow the step by step guide from the Chart.js documentation.
 
 ---

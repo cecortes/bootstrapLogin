@@ -183,7 +183,7 @@
         </div>
 
         <!-- Col for Second Graph -->
-        <div class="col-lg-6 col-md-12 mb-3">
+        <div class="col-lg-6 col-md-12">
 
           <!-- Card -->
           <div class="card">
@@ -212,109 +212,109 @@
       <div class="row p-3">
 
         <!-- Col for Table -->
-        <div class="col-12">
+        <div class="container-lg text-center mb-4 table-responsive">
 
-          <!-- Card -->
-          <div class="card">
+          <!-- Table -->
+          <table class="table table-dark table-hover table-bordered border-texto align-middle tabla">
 
-            <!-- Card Header -->
-            <div class="card-header">
-              <!-- Title -->
-              <h4 class="card-title">Productos</h4>
-            </div>
+            <!-- Table Head -->
+            <thead>
+              <!-- Table Row -->
+              <tr class="table-header">
+                <!-- Table Header -->
+                <th scope="col">Nombre</th>
+                <!-- Table Header -->
+                <th scope="col">Descripción</th>
+                <!-- Table Header -->
+                <th scope="col">Precio</th>
+                <!-- Table Header -->
+                <th scope="col">Stock</th>
+                <!-- Table Header -->
+                <th scope="col"></th>
+                <!-- Table Header -->
+                <th scope="col"></th>
+              </tr>
+            </thead>
 
-            <!-- Card Body -->
-            <div class="card-body">
+            <!-- Table Body -->
+            <tbody class="table-group-divider" id="products-table">
 
-              <!-- Table -->
-              <table class="table table-striped table-hover table-responsive">
+              <!-- Table Row -->
+              <tr>
+                <!-- Table Data -->
+                <th scope="row">Producto 1</th>
+                <!-- Table Data -->
+                <td>Descripción 1</td>
+                <!-- Table Data -->
+                <td>$100</td>
+                <!-- Table Data -->
+                <td>10</td>
+                <!-- Table Data -->
+                <td>
+                  <!-- Edit Button -->
+                  <button class="btn btn-editar" id="edit-btn">Editar</button>
+                </td>
+                <td> 
+                  <!-- Delete Button -->
+                  <button class="btn btn-danger">Eliminar</button>
+                </td>
+              </tr>
 
-                <!-- Table Head -->
-                <thead>
-                  <!-- Table Row -->
-                  <tr>
-                    <!-- Table Header -->
-                    <th>Nombre</th>
-                    <!-- Table Header -->
-                    <th>Descripción</th>
-                    <!-- Table Header -->
-                    <th>Precio</th>
-                    <!-- Table Header -->
-                    <th>Stock</th>
-                    <!-- Table Header -->
-                    <th>Acciones</th>
-                  </tr>
-                </thead>
+              <!-- Table Row -->
+              <tr>
+                <!-- Table Data -->
+                <th scope="row">Producto 2</td>
+                <!-- Table Data -->
+                <td>Descripción 2</td>
+                <!-- Table Data -->
+                <td>$200</td>
+                <!-- Table Data -->
+                <td>20</td>
+                <!-- Table Data -->
+                <td>
+                  <!-- Edit Button -->
+                  <button class="btn btn-editar" id="edit-btn">Editar</button>
+                </td>
+                <td> 
+                  <!-- Delete Button -->
+                  <button class="btn btn-danger">Eliminar</button>
+                </td>
+              </tr>
 
-                <!-- Table Body -->
-                <tbody id="products-table">
+              <!-- Table Row -->
+              <tr>
+                <!-- Table Data -->
+                <th scope="row">Producto 3</td>
+                <!-- Table Data -->
+                <td>Descripción 3</td>
+                <!-- Table Data -->
+                <td>$300</td>
+                <!-- Table Data -->
+                <td>30</td>
+                <!-- Table Data -->
+                <td>
+                  <!-- Edit Button -->
+                  <button class="btn btn-editar" id="edit-btn">Editar</button>
+                </td>
+                <td> 
+                  <!-- Delete Button -->
+                  <button class="btn btn-danger">Eliminar</button>
+                </td>
+              </tr>
 
-                  <!-- Table Row -->
-                  <tr>
-                    <!-- Table Data -->
-                    <td>Producto 1</td>
-                    <!-- Table Data -->
-                    <td>Descripción 1</td>
-                    <!-- Table Data -->
-                    <td>$100</td>
-                    <!-- Table Data -->
-                    <td>10</td>
-                    <!-- Table Data -->
-                    <td>
-                      <!-- Edit Button -->
-                      <button class="btn btn-warning">Editar</button>
-                      <!-- Delete Button -->
-                      <button class="btn btn-danger">Eliminar</button>
-                    </td>
-                  </tr>
+            </tbody>
 
-                  <!-- Table Row -->
-                  <tr>
-                    <!-- Table Data -->
-                    <td>Producto 2</td>
-                    <!-- Table Data -->
-                    <td>Descripción 2</td>
-                    <!-- Table Data -->
-                    <td>$200</td>
-                    <!-- Table Data -->
-                    <td>20</td>
-                    <!-- Table Data -->
-                    <td>
-                      <!-- Edit Button -->
-                      <button class="btn btn-warning">Editar</button>
-                      <!-- Delete Button -->
-                      <button class="btn btn-danger">Eliminar</button>
-                    </td>
-                  </tr>
-
-                  <!-- Table Row -->
-                  <tr>
-                    <!-- Table Data -->
-                    <td>Producto 3</td>
-                    <!-- Table Data -->
-                    <td>Descripción 3</td>
-                    <!-- Table Data -->
-                    <td>$300</td>
-                    <!-- Table Data -->
-                    <td>30</td>
-                    <!-- Table Data -->
-                    <td>
-                      <!-- Edit Button -->
-                      <button class="btn btn-warning">Editar</button>
-                      <!-- Delete Button -->
-                      <button class="btn btn-danger">Eliminar</button>
-                    </td>
-                  </tr>
-
-                </tbody>
-
-              </table>
-
-            </div>
-
-          </div>
+          </table>
         
         </div>
+
+      </div>
+
+      <!-- Action Container -->
+      <div class="container-sm text-center text-pink-300">
+
+        <!-- Add Button -->
+        <button class="btn btn-success" id="add-btn">Agregar Producto</button>
 
       </div>
 
